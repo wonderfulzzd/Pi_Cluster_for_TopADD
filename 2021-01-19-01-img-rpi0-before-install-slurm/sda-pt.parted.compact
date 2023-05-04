@@ -1,0 +1,10 @@
+Model: Generic- SD/MMC (scsi)
+Disk /dev/sda: 32.0GB
+Sector size (logical/physical): 512B/512B
+Partition Table: msdos
+Disk Flags: 
+
+Number  Start   End     Size    Type     File system  Flags
+ 1      1049kB  269MB   268MB   primary  fat32        boot, lba
+ 2      269MB   32.0GB  31.7GB  primary  ext4
+
