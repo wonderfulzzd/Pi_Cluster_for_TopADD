@@ -1,2 +1,2 @@
 # Pi_Cluster_for_TopADD
-A Raspberry Pi cluster for TopADD program
+A Raspberry Pi cluster for the TopADD program
