@@ -1,6 +1,10 @@
 # Pi_Cluster_for_TopADD
 A Raspberry Pi cluster for the TopADD program
 
+The following discussion assumes one has physically built a Raspberry Pi cluster, similar as the following one:
+![IMG_9248](https://user-images.githubusercontent.com/19493039/236486047-83bff4b4-61f6-40b2-8cef-3ce520924f31.png)
+
+
 ## Method 1: Fresh installation
 
 ### 1. Download Raspberry Pi imager
@@ -12,16 +16,22 @@ https://www.youtube.com/watch?v=ntaXWS8Lk34 <br>
 ![image](https://user-images.githubusercontent.com/19493039/236716118-559bbcb7-0bce-4ec0-99e0-819e191e2d1e.png) <br>
 
 ### 3. Insert the SD card and boot
-Insert the microSD card/USB drive/external SSD drive to the Raspberry Pi and power it on.
+Insert the microSD card/USB drive/external SSD drive to the Raspberry Pi. <br>
+Connect internet cable, mouse and keyboard. <br>
+Connect power supply and boot.
 
 ### 4. Setup the OS
 
-#### 4.1 Basic setups
-Enable screen sharing
+#### 4.1 Enable screen sharing
+Connect a laptop to the switch
 ![image](https://user-images.githubusercontent.com/19493039/236723444-743861a7-bd64-4de4-8e89-32581a72d0b0.png)
 ![image](https://user-images.githubusercontent.com/19493039/236728172-8e493577-d68f-4e60-b645-2ea88bf02a1d.png)
 
-Enable SSH,  
+Enable SSH
+> 
+Download and install OpenSSH server: https://packages.ubuntu.com/jammy/arm64/openssh-server/download
+> cd ~
+> touch .ssh
 
 https://glmdev.medium.com/building-a-raspberry-pi-cluster-784f0df9afbd <br>
 
@@ -54,4 +64,3 @@ Tutorial can be found: https://clonezilla.org/fine-print-live-doc.php?path=clone
 
 ### 3. Insert the microSD cards into a Pi cluster
 
-![IMG_9248](https://user-images.githubusercontent.com/19493039/236486047-83bff4b4-61f6-40b2-8cef-3ce520924f31.png)
