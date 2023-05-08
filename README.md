@@ -12,6 +12,7 @@ https://www.youtube.com/watch?v=ntaXWS8Lk34 <br>
 ![image](https://user-images.githubusercontent.com/19493039/236716118-559bbcb7-0bce-4ec0-99e0-819e191e2d1e.png) <br>
 
 ### 3. Insert the SD card and boot
+Insert the microSD card/USB drive/external SSD drive to the Raspberry Pi and power it on.
 
 ### 4. Setup the OS
 
@@ -20,7 +21,8 @@ Enable screen sharing
 ![image](https://user-images.githubusercontent.com/19493039/236723444-743861a7-bd64-4de4-8e89-32581a72d0b0.png)
 ![image](https://user-images.githubusercontent.com/19493039/236728172-8e493577-d68f-4e60-b645-2ea88bf02a1d.png)
 
-SSH,  
+Enable SSH,  
+
 https://glmdev.medium.com/building-a-raspberry-pi-cluster-784f0df9afbd <br>
 
 #### 4.2 MPICH
