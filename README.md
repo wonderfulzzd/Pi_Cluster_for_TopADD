@@ -33,35 +33,10 @@ You will be asked to change password immediately after you login. You may change
 Check the hostname by:
 > hostname
 
-You may want to change the hostname and hosts. <br>
+You may want to change the hostname. <br>
 
 Change the hostname permanently
 > sudo hostnamectl set-hostname rpi0
-
-Change hosts
-> sudo nano /etc/hosts
-
-Type the following into the file:
-```
-127.0.0.1 localhost
-
-192.168.137.160 rpi0
-192.168.137.161 rpi1
-192.168.137.162 rpi2
-192.168.137.163 rpi3
-192.168.137.164 rpi4
-
-# The following lines are desirable for IPv6 capable hosts
-::1 ip6-localhost ip6-loopback
-fe00::0 ip6-localnet
-fe00::0 ip6-mcastprefix
-fe00::1 ip6-allnodes
-fe00::2 ip6-allrouters
-fe00::3 ip6-allhosts
-
-
-```
-
 
 #### 4.1 Internet connection
 LAN
@@ -108,6 +83,28 @@ Then generate and apply the netplan settings：
 > sudo netplan apply <br>
 
 Both LAN and Wifi should have been connected.
+
+You may want to change the hosts, which will be the ip and hostname for the other nodes in the cluster. The hosts can be changed as follows:
+> sudo nano /etc/hosts
+
+Type the following into the file:
+```
+127.0.0.1 localhost
+
+192.168.137.160 rpi0
+192.168.137.161 rpi1
+192.168.137.162 rpi2
+192.168.137.163 rpi3
+192.168.137.164 rpi4
+
+# The following lines are desirable for IPv6 capable hosts
+::1 ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+fe00::0 ip6-mcastprefix
+fe00::1 ip6-allnodes
+fe00::2 ip6-allrouters
+fe00::3 ip6-allhosts
+```
 
 #### 4.2 Enable SSH
 Install OpenSSH server program:
