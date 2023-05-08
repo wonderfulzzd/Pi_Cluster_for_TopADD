@@ -5,10 +5,27 @@ A Raspberry Pi cluster for the TopADD program
 1. Download Raspberry Pi imager
    https://downloads.raspberrypi.org/imager/imager_latest.exe
    
-2. Use Raspberry Pi imager to install OS on a microSD card
+2. Flash the SDs
+   Use Raspberry Pi imager to install OS on microSD
    https://www.youtube.com/watch?v=ntaXWS8Lk34
+   ![image](https://user-images.githubusercontent.com/19493039/236716118-559bbcb7-0bce-4ec0-99e0-819e191e2d1e.png)
+
    
-3. Clone the microSD card to produce microSD card for a cluster
+3. Setup the OS
+   3.1 Basic setups
+       https://glmdev.medium.com/building-a-raspberry-pi-cluster-784f0df9afbd
+   3.2 MPICH
+       sudo apt install mpich
+   3.3 PETSc
+       On the NAS directory from 3.1, called "clusterfs", install PETSc.
+       The official instruction: https://petsc.org/main/install/install/
+       The configuration I used:
+       
+       
+       
+   
+
+4. Clone multiple microSD
    Use an open-source software called Clonezilla: https://clonezilla.org/
    Tutorial can be found: https://clonezilla.org/fine-print-live-doc.php?path=clonezilla-live/doc/03_Disk_to_disk_clone
     
