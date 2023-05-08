@@ -1,9 +1,10 @@
 # Pi_Cluster_for_TopADD
 A Raspberry Pi cluster for the TopADD program
 
-The following discussion assumes one has physically built a Raspberry Pi cluster, similar as the following one:
-![IMG_9248](https://user-images.githubusercontent.com/19493039/236486047-83bff4b4-61f6-40b2-8cef-3ce520924f31.png)
+The following discussion on configurations assumes one has physically built a Raspberry Pi cluster, for example: <br>
+![IMG_9248](https://user-images.githubusercontent.com/19493039/236486047-83bff4b4-61f6-40b2-8cef-3ce520924f31.png) <br>
 
+The above cluster consists of 5 nodes, including 1 login node (in the black case) and 4 computing node.
 
 ## Method 1: Fresh installation
 
