@@ -25,16 +25,41 @@ Connect internet cable, mouse and keyboard, monitor. <br>
 Connect power supply and boot.
 
 ### 4. Setup the OS
+#### 4.1 Login
+For Ubuntu 22.04, the default user name and password are both 'ubuntu' if you did not create a user name and password in the Advanced options menu when flashing the SD card. <br>
+You will be asked to change password immediately after you login. You may change the password to 'raspberry'. <br>
 
 #### 4.1 Change hostname and hosts
-hostname
+Check the hostname by:
+> hostname
+
+You may want to change the hostname and hosts. <br>
+
+Change the hostname permanently
 > sudo hostnamectl set-hostname rpi0
 
-hosts
+Change hosts
 > sudo nano /etc/hosts
 
 Type the following into the file:
 ```
+127.0.0.1 localhost
+
+192.168.137.160 rpi0
+192.168.137.161 rpi1
+192.168.137.162 rpi2
+192.168.137.163 rpi3
+192.168.137.164 rpi4
+
+
+# The following lines are desirable for IPv6 capable hosts
+::1 ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+fe00::0 ip6-mcastprefix
+fe00::1 ip6-allnodes
+fe00::2 ip6-allrouters
+fe00::3 ip6-allhosts
+
 
 ```
 
@@ -80,8 +105,8 @@ Add the following into the file:
 Change "My_wifi" and password "12345678" according to a user's wifi. Pay attention to the indentation.
 
 Then generate and apply the netplan settings：
-> sudo netplan generate
-> sudo netplan apply
+> sudo netplan generate <br>
+> sudo netplan apply <br>
 
 Both LAN and Wifi should have been connected.
 
