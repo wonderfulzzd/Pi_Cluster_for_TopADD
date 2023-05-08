@@ -52,11 +52,16 @@ Wifi should have been connected.
 #### 4.2 Enable SSH
 Install OpenSSH server program:
 > sudo apt install openssh-server 
+
 Check the status of the ssh server:
 > sudo systemctl status ssh
+
 Use the UFW (Uncomplicated FireWall) to allow SSH connections:
 > sudo ufw allow ssh
+> sudo ufw enable
 
+Check the UFW status:
+> sudo ufw status
 
 #### 4.3 Enable screen sharing
 Connect a laptop to the switch <br>
