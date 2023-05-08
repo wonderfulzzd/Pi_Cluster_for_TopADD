@@ -51,7 +51,6 @@ Type the following into the file:
 192.168.137.163 rpi3
 192.168.137.164 rpi4
 
-
 # The following lines are desirable for IPv6 capable hosts
 ::1 ip6-localhost ip6-loopback
 fe00::0 ip6-localnet
