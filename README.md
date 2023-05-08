@@ -17,9 +17,8 @@ https://www.youtube.com/watch?v=ntaXWS8Lk34 <br>
 
 #### 4.1 Basic setups
 Enable screen sharing
-![Uploading image.png…]()
-![image](https://user-images.githubusercontent.com/19493039/236722981-54adb2ee-17f8-49ca-b99e-9a722499237a.png)
-
+![image](https://user-images.githubusercontent.com/19493039/236723444-743861a7-bd64-4de4-8e89-32581a72d0b0.png)
+![image](https://user-images.githubusercontent.com/19493039/236728172-8e493577-d68f-4e60-b645-2ea88bf02a1d.png)
 
 SSH,  
 https://glmdev.medium.com/building-a-raspberry-pi-cluster-784f0df9afbd <br>
