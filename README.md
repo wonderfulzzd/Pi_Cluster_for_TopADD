@@ -16,6 +16,9 @@ Use Raspberry Pi imager to install OS on microSD <br>
 https://www.youtube.com/watch?v=ntaXWS8Lk34 <br>
 <img src="https://user-images.githubusercontent.com/19493039/236716118-559bbcb7-0bce-4ec0-99e0-819e191e2d1e.png" width=50% height=50%>
 
+<img src="https://user-images.githubusercontent.com/19493039/236950684-e8c50b4f-6f36-4516-915d-f12aaea5950a.png" width=50% height=50%>
+
+
 ### 3. Insert the SD card and boot
 Insert the microSD card/USB drive/external SSD drive to the Raspberry Pi. <br>
 Connect internet cable, mouse and keyboard, monitor. <br>
@@ -23,36 +26,49 @@ Connect power supply and boot.
 
 ### 4. Setup the OS
 
+#### 4.1 Change hostname and hosts
+hostname
+> sudo hostnamectl set-hostname rpi0
+
+hosts
+> sudo nano /etc/hosts
+
+Type the following into the file:
+```
+
+```
+
+
 #### 4.1 Internet connection
 LAN
 > sudo nano /etc/netplan/01-network-manager-all.yaml
 
 Type the following into the file:
 ```
-# Let NetworkManager manage all devices on this system
- network:
-  version: 2
-  renderer: NetworkManager
-  wifis:
-      wlan0:
-          optional: true
-          access-points:
-              "My_wifi":
-                  password: "12345678"
-          dhcp4: true
+# This file is generated from information provided by the datasource.  Changes
+# to it will not persist across an instance reboot.  To disable cloud-init's
+# network configuration capabilities, write a file
+# /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:
+# network: {config: disabled}
+network:
+    version: 2
+    ethernets:
+        eth0:
+            dhcp4: no
+            addresses: [192.168.137.161/24]
+            nameservers:
+                addresses: [127.0.0.53, 8.8.8.8]
+            routes:
+                - to: default
+                - via: 192.168.137.1
+            optional: true
 ```
-
-
 
 WIFI
 > sudo nano /etc/netplan/01-network-manager-all.yaml
 
-Type the following into the file:
+Add the following into the file:
 ```
-# Let NetworkManager manage all devices on this system
- network:
-  version: 2
-  renderer: NetworkManager
   wifis:
       wlan0:
           optional: true
@@ -67,7 +83,7 @@ Then generate and apply the netplan settings：
 > sudo netplan generate
 > sudo netplan apply
 
-Wifi should have been connected.
+Both LAN and Wifi should have been connected.
 
 #### 4.2 Enable SSH
 Install OpenSSH server program:
@@ -83,16 +99,9 @@ Use the UFW (Uncomplicated FireWall) to allow SSH connections:
 Check the UFW status:
 > sudo ufw status
 
-#### 4.3 Enable screen sharing
-Connect a laptop to the switch <br>
-<img src="https://user-images.githubusercontent.com/19493039/236723444-743861a7-bd64-4de4-8e89-32581a72d0b0.png" width=50% height=50%>
-<img src="https://user-images.githubusercontent.com/19493039/236728172-8e493577-d68f-4e60-b645-2ea88bf02a1d.png" width=50% height=50%>
 
 
-
-https://glmdev.medium.com/building-a-raspberry-pi-cluster-784f0df9afbd <br>
-
-#### 4.2 MPICH
+#### 4.4 MPICH
 > sudo apt install mpich
 
 #### 4.3 PETSc
@@ -101,7 +110,13 @@ The official instruction: <br>
 https://petsc.org/main/install/install/ <br>
 The configuration I used: <br>
 > ./configure PETSC_DIR=/clusterfs/opt/petsc-3.10.2 PETSC_ARCH=arch-linux-mpicc-release --COPTFLAGS='-O3' --CXXOPTFLAGS='-O3' --FOPTFLAGS='-O3' --with-hypre-dir=/clusterfs/opt/hypre-2.14.0 --with-debugging=0 --with-cc=mpicc --with-cxx=mpicxx --with-fc=mpif90  <br>
-       
+
+#### 4.3 (optional if install ubuntu desktop) Enable screen sharing
+Connect a laptop to the switch <br>
+<img src="https://user-images.githubusercontent.com/19493039/236723444-743861a7-bd64-4de4-8e89-32581a72d0b0.png" width=50% height=50%>
+<img src="https://user-images.githubusercontent.com/19493039/236728172-8e493577-d68f-4e60-b645-2ea88bf02a1d.png" width=50% height=50%>
+
+
 ### 5. Clone multiple microSD
 Use an open-source software called Clonezilla: https://clonezilla.org/
 Tutorial can be found: https://clonezilla.org/fine-print-live-doc.php?path=clonezilla-live/doc/03_Disk_to_disk_clone
