@@ -24,12 +24,14 @@ Insert the microSD card/USB drive/external SSD drive to the Raspberry Pi. <br>
 Connect internet cable, mouse and keyboard, monitor. <br>
 Connect power supply and boot.
 
+
 ### 4. Setup the OS
+
 #### 4.1 Login
 For Ubuntu 22.04, the default user name and password are both 'ubuntu' if you did not create a user name and password in the Advanced options menu when flashing the SD card. <br>
 You will be asked to change password immediately after you login. You may change the password to 'raspberry'. <br>
 
-#### 4.1 Change hostname and hosts
+#### 4.1 Change hostname
 Check the hostname by:
 > hostname
 
@@ -38,7 +40,29 @@ You may want to change the hostname. <br>
 Change the hostname permanently
 > sudo hostnamectl set-hostname rpi0
 
-#### 4.1 Internet connection
+#### 4.2 Enable SSH
+For Ubuntu 22.04, the SSH seems to be enabled by default.
+
+For other versions of Ubuntu, you may try the following steps to install and enable SSH: <br>
+Install OpenSSH server program:
+> sudo apt install openssh-server 
+
+Check the status of the ssh server:
+> sudo systemctl status ssh
+
+Use the UFW (Uncomplicated FireWall) to allow SSH connections:
+> sudo ufw allow ssh
+> sudo ufw enable
+
+Check the UFW status:
+> sudo ufw status
+
+#### 4.3 Internet connection
+Check ip address:
+> ip a
+
+In the section of 'eth0', you may find inet 192.168.137.118 or something like it. That is the LAN ip address of the Pi. It is created by the router DHCP server. You may want to change it to a static ip.
+
 LAN
 > sudo nano /etc/netplan/01-network-manager-all.yaml
 
@@ -63,7 +87,7 @@ network:
             optional: true
 ```
 
-WIFI
+You may also want to setup and connect the WIFI:
 > sudo nano /etc/netplan/01-network-manager-all.yaml
 
 Add the following into the file:
@@ -84,10 +108,16 @@ Then generate and apply the netplan settings：
 
 Both LAN and Wifi should have been connected.
 
+
 You may want to change the hosts, which will be the ip and hostname for the other nodes in the cluster. The hosts can be changed as follows:
 > sudo nano /etc/hosts
 
-Type the following into the file:
+#### 4.4 Change hosts
+Hosts are the hosts ip and names for your other nodes in the cluster. You can check them in /etc/hosts. <br>
+> sudo /etc/hosts
+
+
+You can set them up by typing the following into the above file:
 ```
 127.0.0.1 localhost
 
@@ -106,23 +136,7 @@ fe00::2 ip6-allrouters
 fe00::3 ip6-allhosts
 ```
 
-#### 4.2 Enable SSH
-Install OpenSSH server program:
-> sudo apt install openssh-server 
-
-Check the status of the ssh server:
-> sudo systemctl status ssh
-
-Use the UFW (Uncomplicated FireWall) to allow SSH connections:
-> sudo ufw allow ssh
-> sudo ufw enable
-
-Check the UFW status:
-> sudo ufw status
-
-
-
-#### 4.4 MPICH
+#### 4.5 MPICH
 > sudo apt install mpich
 
 #### 4.3 PETSc
@@ -130,7 +144,7 @@ On the NAS directory from step 3.1, called "clusterfs", install the software PET
 The official instruction: <br>
 https://petsc.org/main/install/install/ <br>
 The configuration I used: <br>
-> ./configure PETSC_DIR=/clusterfs/opt/petsc-3.10.2 PETSC_ARCH=arch-linux-mpicc-release --COPTFLAGS='-O3' --CXXOPTFLAGS='-O3' --FOPTFLAGS='-O3' --with-hypre-dir=/clusterfs/opt/hypre-2.14.0 --with-debugging=0 --with-cc=mpicc --with-cxx=mpicxx --with-fc=mpif90  <br>
+> ./configure PETSC_DIR=/home/ubuntu/opt/petsc-3.10.2 PETSC_ARCH=arch-linux-mpicc-release --COPTFLAGS='-O3' --CXXOPTFLAGS='-O3' --FOPTFLAGS='-O3' --with-hypre-dir=/clusterfs/opt/hypre-2.14.0 --with-debugging=0 --with-cc=mpicc --with-cxx=mpicxx --with-fc=mpif90  <br>
 
 #### 4.3 (optional if install ubuntu desktop) Enable screen sharing
 Connect a laptop to the switch <br>
@@ -141,10 +155,12 @@ Connect a laptop to the switch <br>
 ### 5. Clone multiple microSD
 Use an open-source software called Clonezilla: https://clonezilla.org/
 Tutorial can be found: https://clonezilla.org/fine-print-live-doc.php?path=clonezilla-live/doc/03_Disk_to_disk_clone
-    
-4. Mu
-5. d
-6. d
+
+### 6. Change the hostname accordingly
+For other nodes, change the hostname accordingly, for example rpi1:
+> sudo hostnamectl set-hostname rpi1
+
+### 7. Try run the TopADD program
 
 
 ## Method 2: Restore from the provided image files
