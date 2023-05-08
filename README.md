@@ -24,7 +24,27 @@ Connect power supply and boot.
 ### 4. Setup the OS
 
 #### 4.1 Internet connection
-wifi
+LAN
+> sudo nano /etc/netplan/01-network-manager-all.yaml
+
+Type the following into the file:
+```
+# Let NetworkManager manage all devices on this system
+ network:
+  version: 2
+  renderer: NetworkManager
+  wifis:
+      wlan0:
+          optional: true
+          access-points:
+              "My_wifi":
+                  password: "12345678"
+          dhcp4: true
+```
+
+
+
+WIFI
 > sudo nano /etc/netplan/01-network-manager-all.yaml
 
 Type the following into the file:
