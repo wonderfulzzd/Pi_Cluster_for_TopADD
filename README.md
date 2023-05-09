@@ -289,7 +289,7 @@ Now edit /etc/fstab to mount the drive automatically.
 Add the following line:
 ```
 #device                                    mountpoint fstype options dump fsck
-<192.168.137.160>:/clusterfs /clusterfs nfs defaults 0 0
+192.168.137.160:/clusterfs  /clusterfs  nfs nofail,x-systemd.automount,x-systemd.requires=network-online.target,x-systemd.device-timeout=10 0 0
 ```
 > sudo mount -a <br>
 
