@@ -156,6 +156,9 @@ Install hypre
 > make -j4 install
 
 #### 4.7 PETSc
+Download PETSc
+> wget -c https://gitlab.com/petsc/petsc/-/archive/v3.17.1/petsc-v3.17.1.tar.gz
+
 On the NAS directory from step 3.1, called "clusterfs", install the software PETSc. <br>
 The official instruction: <br>
 https://petsc.org/main/install/install/ <br>
