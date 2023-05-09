@@ -207,8 +207,61 @@ Copy the key to remote desktop, e.g rpi1,
 Test the setup whether is successful
 > ssh ubuntu@rpi1 <br>
 
+### 8. Network file system (NFS)
+A shared storage is needed on a cluster when each node needs to be able to access the same files. This can be achieved by setting up a net
 
-### 8. Try run the TopADD program
+#### 8.1 Check the identifier of the drive:
+Insert a flash drive or SSD drive into one of the USB prots on the master node. Then, find the drive's identifier by lsblk
+> lsblk
+```
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+loop0         7:0    0  59.1M  1 loop /snap/core20/1826
+loop1         7:1    0  59.1M  1 loop /snap/core20/1883
+loop2         7:2    0 109.6M  1 loop /snap/lxd/24326
+loop3         7:3    0  43.2M  1 loop /snap/snapd/18363
+sda           8:0    1 114.6G  0 disk
+└─sda1        8:1    1 114.6G  0 part
+mmcblk0     179:0    0 119.4G  0 disk
+├─mmcblk0p1 179:1    0   256M  0 part /boot/firmware
+└─mmcblk0p2 179:2    0 119.1G  0 part /
+```
+So the drive identifier is /dev/sda1
+
+#### 8.2 Format the drive
+> sudo mkfs.ext4 /dev/sda1
+
+#### 8.3 Create the mount directory
+Created /clusterfs, and make it below to anyone by setting nobody:nogroup. Also enable it to do all operations, e.g. write, read, execute by setting chmod 777.
+> sudo mkdir /clusterfs <br>
+> sudo chown nobody:nogroup -R /clusterfs <br>
+> sudo chmod 777 -R /clusterfs
+
+#### 8.4 Setup automatic mounting
+It is required to get the UUID of the drive in order to do automatic mounting.
+> blkid <br>
+```
+/dev/sda1: UUID="2defec4b-334c-4b3e-ad7f-aab5c2a5a785" BLOCK_SIZE="4096" TYPE="ext4" PARTUUID="70d094fc-01"
+```
+
+Now edit /etc/fstab to mount the drive automatically.
+> sudo nano /etc/fstab <br>
+Add the following line:
+```
+#device                                    mountpoint fstype options dump fsck
+UUID=2defec4b-334c-4b3e-ad7f-aab5c2a5a785 /clusterfs ext4 defaults 0 2
+
+```
+Note: <br>
+dump of 0 will assume that the filesystem does not need to be dumped.
+fsck should be 2 for not root partition.
+
+Finally mount
+> sudo mount -a
+
+Reference: <br>
+https://glmdev.medium.com/building-a-raspberry-pi-cluster-784f0df9afbd
+
+### 9. Try run the TopADD program
 Clone the TopADD repo on github
 > git clone https://github.com/wonderfulzzd/TopADD_2D_3D_Arbitrary_TopOpt_in_PETSc.git <br>
 > cd TopADD_2D_3D_Arbitrary_TopOpt_in_PETSc <br>
@@ -235,17 +288,6 @@ Compile and run
 
 The cluster has been successfully configured.
 
-### 9. (optional) Network file system (NFS)
-A shared storage is needed on a cluster when each node needs to be able to access the same files. This can be achieved by setting up a net
-If Ubuntu desktop is installed on a Raspberry Pi, then the Pi can be remotelly controlled. <br>
-<img src="https://user-images.githubusercontent.com/19493039/236723444-743861a7-bd64-4de4-8e89-32581a72d0b0.png" width=80% height=80%> <br>
-<img src="https://user-images.githubusercontent.com/19493039/236728172-8e493577-d68f-4e60-b645-2ea88bf02a1d.png" width=80% height=80%> <br>
-
-Install TightVNC Viewer on a Windows laptop/desktop. Connect the laptop to the switch connecting the Pi.
-<img src="https://user-images.githubusercontent.com/19493039/237030336-ff45598e-e2f2-4481-aa05-497b94137b35.png" width=50% height=50%> <br>
-
-Reference: <br>
-https://glmdev.medium.com/building-a-raspberry-pi-cluster-784f0df9afbd
 
 ### 10. (optional) Enable screen sharing
 If Ubuntu desktop is installed on a Raspberry Pi, then the Pi can be remotelly controlled. <br>
