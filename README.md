@@ -277,7 +277,21 @@ In this step, we will grant access to the client system.
 > sudo ufw allow from 192.168.137.160/24 to any port nfs
 
 #### 8.9 Install NFS on other nodes
-> sudo apt=get install nfs-common
+> sudo apt=get install nfs-common <br>
+> sudo mkdir /clusterfs <br>
+> sudo chown nobody:nogroup /clusterfs
+> sudo chmod -R 777 /clusterfs
+
+#### 8.10 Setup automatic mounting on other nodes
+Now edit /etc/fstab to mount the drive automatically.
+> sudo nano /etc/fstab <br>
+
+Add the following line:
+```
+#device                                    mountpoint fstype options dump fsck
+<192.168.137.160>:/clusterfs /clusterfs nfs defaults 0 0
+```
+> sudo mount -a <br>
 
 Reference: <br>
 https://glmdev.medium.com/building-a-raspberry-pi-cluster-784f0df9afbd <br>
