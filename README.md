@@ -245,12 +245,13 @@ It is required to get the UUID of the drive in order to do automatic mounting.
 
 Now edit /etc/fstab to mount the drive automatically.
 > sudo nano /etc/fstab <br>
+
 Add the following line:
 ```
 #device                                    mountpoint fstype options dump fsck
 UUID=2defec4b-334c-4b3e-ad7f-aab5c2a5a785 /clusterfs ext4 defaults 0 2
-
 ```
+
 Note: <br>
 dump of 0 will assume that the filesystem does not need to be dumped.
 fsck should be 2 for not root partition.
@@ -258,8 +259,11 @@ fsck should be 2 for not root partition.
 Finally mount
 > sudo mount -a
 
+#### 8.5 
+
 Reference: <br>
-https://glmdev.medium.com/building-a-raspberry-pi-cluster-784f0df9afbd
+https://glmdev.medium.com/building-a-raspberry-pi-cluster-784f0df9afbd <br>
+https://linuxhint.com/install-and-configure-nfs-server-ubuntu-22-04/   <br>
 
 ### 9. Try run the TopADD program
 Clone the TopADD repo on github
