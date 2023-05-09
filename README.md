@@ -83,7 +83,7 @@ network:
                 addresses: [127.0.0.53, 8.8.8.8]
             routes:
                 - to: default
-                - via: 192.168.137.1
+                  via: 192.168.137.1
             optional: true
 ```
 
@@ -136,10 +136,14 @@ fe00::2 ip6-allrouters
 fe00::3 ip6-allhosts
 ```
 
-#### 4.5 MPICH
+#### 4.5 Install hypre
+Download hypre
+> wget -c https://github.com/hypre-space/hypre/archive/refs/tags/v2.19.0.tar.gz -O hypre-2.19.0.tar.gz
+
+#### 4.6 MPICH
 > sudo apt install mpich
 
-#### 4.3 PETSc
+#### 4.7 PETSc
 On the NAS directory from step 3.1, called "clusterfs", install the software PETSc. <br>
 The official instruction: <br>
 https://petsc.org/main/install/install/ <br>
