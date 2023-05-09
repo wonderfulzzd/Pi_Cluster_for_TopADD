@@ -152,9 +152,8 @@ Download hypre
 Install hypre
 > tar -xof hypre-2.19.0.tar.gz
 > cd hypre-2.19.0/src
-> ./configure --enable-shared 
-
-
+> ./configure --prefix=/home/ubuntu/opt --enable-shared
+> make -j4 install
 
 #### 4.7 PETSc
 On the NAS directory from step 3.1, called "clusterfs", install the software PETSc. <br>
