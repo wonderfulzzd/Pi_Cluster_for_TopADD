@@ -15,8 +15,6 @@ https://downloads.raspberrypi.org/imager/imager_latest.exe <br>
 ### 2. Flash the SDs
 Use Raspberry Pi imager to install OS on microSD <br>
 https://www.youtube.com/watch?v=ntaXWS8Lk34 <br>
-<img src="https://user-images.githubusercontent.com/19493039/236716118-559bbcb7-0bce-4ec0-99e0-819e191e2d1e.png" width=50% height=50%> <br>
-
 <img src="https://user-images.githubusercontent.com/19493039/236950684-e8c50b4f-6f36-4516-915d-f12aaea5950a.png" width=50% height=50%> <br>
 
 
@@ -195,9 +193,16 @@ For other nodes, change the hostname accordingly, for example rpi1:
 > sudo hostnamectl set-hostname rpi1 <br>
 
 
-### 6. Change the hostname accordingly
-For other nodes, change the hostname accordingly, for example rpi1:
-> sudo hostnamectl set-hostname rpi1 <br>
+### 6. Set up password-less SSH login
+Enable to login to a remote computer via ssh without having to enter the password
+Go to .ssh directory
+> cd ~/.ssh <br>
+Generate a SSH key
+> ssh-keygen <br>
+Copy the key to remote desktop, e.g rpi1,
+> ssh-copy-id ubuntu@rpi1 <br>
+Test the setup whether is successful
+> ssh ubuntu@rpi1 <br>
 
 
 ### 7. Try run the TopADD program
