@@ -293,6 +293,20 @@ Add the following line:
 ```
 > sudo mount -a <br>
 
+#### 8.11 Firewall settings
+> sudo ufw allow from 192.168.137.160/24 to any port nfs
+> sudo ufw enable
+> sudo ufw status
+```
+Status: active
+
+To                         Action      From
+--                         ------      ----
+22/tcp                     ALLOW       Anywhere
+2049                       ALLOW       192.168.137.0/24
+22/tcp (v6)                ALLOW       Anywhere (v6)
+```
+
 Reference: <br>
 https://glmdev.medium.com/building-a-raspberry-pi-cluster-784f0df9afbd <br>
 https://linuxhint.com/install-and-configure-nfs-server-ubuntu-22-04/   <br>
