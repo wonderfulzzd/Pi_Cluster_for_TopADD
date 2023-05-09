@@ -188,10 +188,12 @@ For other nodes, change the hostname accordingly, for example rpi1:
 > sudo hostnamectl set-hostname rpi1 <br>
 Change the IP address
 > sudo nano /etc/netplan/01-network-manager-all.yaml <br>
-For example: 192.168.137.161 for rpi1 <br>
-             192.168.137.162 for rpi2 <br>
-             192.168.137.163 for rpi3 <br>
-             192.168.137.164 for rpi4 <br>
+
+For example: 
+192.168.137.161 for rpi1 <br>
+192.168.137.162 for rpi2 <br>
+192.168.137.163 for rpi3 <br>
+192.168.137.164 for rpi4 <br>
 
 
 ### 7. Set up password-less SSH login
@@ -236,8 +238,8 @@ The cluster has been successfully configured.
 
 ### 9. (optional) Enable screen sharing
 If Ubuntu desktop is installed on a Raspberry Pi, then the Pi can be remotelly controlled. <br>
-<img src="https://user-images.githubusercontent.com/19493039/236723444-743861a7-bd64-4de4-8e89-32581a72d0b0.png" width=50% height=50%> <br>
-<img src="https://user-images.githubusercontent.com/19493039/236728172-8e493577-d68f-4e60-b645-2ea88bf02a1d.png" width=50% height=50%> <br>
+<img src="https://user-images.githubusercontent.com/19493039/236723444-743861a7-bd64-4de4-8e89-32581a72d0b0.png" width=80% height=80%> <br>
+<img src="https://user-images.githubusercontent.com/19493039/236728172-8e493577-d68f-4e60-b645-2ea88bf02a1d.png" width=80% height=80%> <br>
 
 Install TightVNC Viewer on a Windows laptop/desktop. Connect the laptop to the switch connecting the Pi.
 <img src="https://user-images.githubusercontent.com/19493039/236950684-e8c50b4f-6f36-4516-915d-f12aaea5950a.png" width=50% height=50%> <br>
