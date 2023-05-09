@@ -30,7 +30,7 @@ Connect power supply and boot. <br>
 For Ubuntu 22.04, the default user name and password are both 'ubuntu' if you did not create a user name and password in the Advanced options menu when flashing the SD card. <br>
 You will be asked to change password immediately after you login. You may change the password to 'raspberry'. <br>
 
-#### 4.1 Change hostname
+#### 4.2 Change hostname
 Check the hostname by:
 > hostname <br>
 
@@ -39,7 +39,7 @@ You may want to change the hostname. <br>
 Change the hostname permanently
 > sudo hostnamectl set-hostname rpi0 <br>
 
-#### 4.2 Enable SSH
+#### 4.3 Enable SSH
 For Ubuntu 22.04, the SSH seems to be enabled by default.
 
 For other versions of Ubuntu, you may try the following steps to install and enable SSH: <br>
@@ -56,7 +56,7 @@ Use the UFW (Uncomplicated FireWall) to allow SSH connections:
 Check the UFW status:
 > sudo ufw status <br>
 
-#### 4.3 Internet connection
+#### 4.4 Internet connection
 Check ip address:
 > ip a <br>
 
@@ -111,7 +111,7 @@ Both LAN and Wifi should have been connected.
 You may want to change the hosts, which will be the ip and hostname for the other nodes in the cluster. The hosts can be changed as follows:
 > sudo nano /etc/hosts <br>
 
-#### 4.4 Change hosts
+#### 4.5 Change hosts
 Hosts are the hosts ip and names for your other nodes in the cluster. You can check them in /etc/hosts. <br>
 > sudo /etc/hosts <br>
 
@@ -133,17 +133,17 @@ fe00::1 ip6-allnodes
 fe00::2 ip6-allrouters
 fe00::3 ip6-allhosts
 ```
-#### 4.5 Update OS
+#### 4.6 Update OS
 > sudo apt-get update <br>
 
-#### 4.5 Install make 
+#### 4.7 Install make 
 "make" is used to build groups of programs from the source code.
 > sudo apt-get install make <br>
 
-#### 4.6 MPICH
+#### 4.8 MPICH
 > sudo apt-get install mpich <br>
 
-#### 4.5 Install hypre
+#### 4.9 Install hypre
 Download hypre
 > wget -c https://github.com/hypre-space/hypre/archive/refs/tags/v2.19.0.tar.gz <br>
 
@@ -153,18 +153,18 @@ Install hypre
 > ./configure --prefix=/home/ubuntu/opt --enable-shared <br>
 > make -j4 install <br>
 
-#### 4.6 Install libblas liblapack
+#### 4.10 Install libblas liblapack
 Lapack is a standard software library for numerical linear algebra. It relies on BLAS implementation.
 Install
 > sudo apt-get install libblas-dev liblapack-dev <br>
 
-#### 4.7 Install hypre
+#### 4.11 Install hypre
 > tar -xof v2.19.0.tar.gz <br>
 > cd hypre-2.19.0/src <br>
 > ./configure --prefix=/home/ubuntu/opt --enable-shared <br>
 > make -j4 install <br>
 
-#### 4.7 PETSc
+#### 4.12 Install PETSc
 The official instruction: <br>
 https://petsc.org/main/install/install/ <br>
 
@@ -177,7 +177,7 @@ Install PETSc. <br>
 > ./configure PETSC_DIR=/home/ubuntu/opt/petsc-3.16.3 PETSC_ARCH=arch-linux-mpicc-release --COPTFLAGS='-O3' --CXXOPTFLAGS='-O3' --FOPTFLAGS='-O3' --with-hypre-dir=/home/ubuntu/opt/hypre-2.19.0 --with-debugging=0 --with-cc=mpicc --with-cxx=mpicxx --with-fc=mpif90  <br>
 > make -j4 PETSC_DIR=/home/ubuntu/opt/petsc-3.16.3 PETSC_ARCH=arch-linux-mpicc-release all <br>
 
-#### 4.3 (optional if install ubuntu desktop) Enable screen sharing
+#### 4.13 (optional if install ubuntu desktop) Enable screen sharing
 Connect a laptop to the switch <br>
 <img src="https://user-images.githubusercontent.com/19493039/236723444-743861a7-bd64-4de4-8e89-32581a72d0b0.png" width=50% height=50%> <br>
 <img src="https://user-images.githubusercontent.com/19493039/236728172-8e493577-d68f-4e60-b645-2ea88bf02a1d.png" width=50% height=50%> <br>
@@ -193,7 +193,7 @@ For other nodes, change the hostname accordingly, for example rpi1:
 > sudo hostnamectl set-hostname rpi1 <br>
 
 
-### 6. Set up password-less SSH login
+### 7. Set up password-less SSH login
 Enable to login to a remote computer via ssh without having to enter the password
 Go to .ssh directory
 > cd ~/.ssh <br>
@@ -205,7 +205,7 @@ Test the setup whether is successful
 > ssh ubuntu@rpi1 <br>
 
 
-### 7. Try run the TopADD program
+### 8. Try run the TopADD program
 Clone the TopADD repo on github
 > git clone https://github.com/wonderfulzzd/TopADD_2D_3D_Arbitrary_TopOpt_in_PETSc.git <br>
 > cd TopADD_2D_3D_Arbitrary_TopOpt_in_PETSc <br>
@@ -231,6 +231,8 @@ Compile and run
 > mpiexec -n 16 -hostfile machinefile ./topopt
 
 The cluster has been successfully configured.
+
+
 
 ## Method 2: Restore from the provided image files
 ### 1. Download the provided image files
