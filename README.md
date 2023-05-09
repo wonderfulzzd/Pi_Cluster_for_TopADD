@@ -11,6 +11,7 @@ The above cluster consists of 5 nodes, including 1 login node (in the black case
 ### 1. Download Raspberry Pi imager
 https://downloads.raspberrypi.org/imager/imager_latest.exe <br>
    
+   
 ### 2. Flash the SDs
 Use Raspberry Pi imager to install OS on microSD <br>
 https://www.youtube.com/watch?v=ntaXWS8Lk34 <br>
@@ -188,12 +189,43 @@ Connect a laptop to the switch <br>
 Use an open-source software called Clonezilla: https://clonezilla.org/
 Tutorial can be found: https://clonezilla.org/fine-print-live-doc.php?path=clonezilla-live/doc/03_Disk_to_disk_clone
 
+
 ### 6. Change the hostname accordingly
 For other nodes, change the hostname accordingly, for example rpi1:
 > sudo hostnamectl set-hostname rpi1 <br>
 
-### 7. Try run the TopADD program
 
+### 6. Change the hostname accordingly
+For other nodes, change the hostname accordingly, for example rpi1:
+> sudo hostnamectl set-hostname rpi1 <br>
+
+
+### 7. Try run the TopADD program
+Clone the TopADD repo on github
+> git clone https://github.com/wonderfulzzd/TopADD_2D_3D_Arbitrary_TopOpt_in_PETSc.git <br>
+> cd TopADD_2D_3D_Arbitrary_TopOpt_in_PETSc <br>
+
+Change the PETSC_DIR and PETSC_ARCH in the makefile accordingly
+> nano makefile <br>
+```
+PETSC_DIR=/home/ubuntu/opt/petsc-3.16.3
+PETSC_ARCH=arch-linux-mpicc-release
+```
+
+Add a machine file in order to run it in parallel
+> nano machinefile
+```
+rpi1
+rpi2
+rpi3
+rpi4
+```
+
+Compile and run
+> make -j4 topopt <br>
+> mpiexec -n 16 -hostfile machinefile ./topopt
+
+The cluster has been successfully configured.
 
 ## Method 2: Restore from the provided image files
 ### 1. Download the provided image files
