@@ -259,7 +259,25 @@ fsck should be 2 for not root partition.
 Finally mount
 > sudo mount -a
 
-#### 8.5 
+#### 8.5 Install NFS server
+In this step run the below command in Ubuntu 22.04 terminal for NFS server installation.
+> sudo apt install nfs-kernel-server <br>
+
+#### 8.6 Grant NFS access
+In this step, we will grant access to the client system.
+> sudo nano /etc/exports
+```
+/clusterfs 192.168.137.160/24(rw,sync,no_root_squash,no_subtree_check)
+```
+
+#### 8.7 Exporting NFS 
+> sudo exportfs -a
+
+#### 8.8 Grant Firewall access
+> sudo ufw allow from 192.168.137.160/24 to any port nfs
+
+#### 8.9 Install NFS on other nodes
+> sudo apt=get install nfs-common
 
 Reference: <br>
 https://glmdev.medium.com/building-a-raspberry-pi-cluster-784f0df9afbd <br>
