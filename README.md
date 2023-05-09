@@ -242,9 +242,7 @@ If Ubuntu desktop is installed on a Raspberry Pi, then the Pi can be remotelly c
 <img src="https://user-images.githubusercontent.com/19493039/236728172-8e493577-d68f-4e60-b645-2ea88bf02a1d.png" width=80% height=80%> <br>
 
 Install TightVNC Viewer on a Windows laptop/desktop. Connect the laptop to the switch connecting the Pi.
-<img src="https://user-images.githubusercontent.com/19493039/236950684-e8c50b4f-6f36-4516-915d-f12aaea5950a.png" width=50% height=50%> <br>
-
-![image](https://user-images.githubusercontent.com/19493039/237030336-ff45598e-e2f2-4481-aa05-497b94137b35.png)
+<img src="https://user-images.githubusercontent.com/19493039/237030336-ff45598e-e2f2-4481-aa05-497b94137b35.png" width=50% height=50%> <br>
 
 
 
