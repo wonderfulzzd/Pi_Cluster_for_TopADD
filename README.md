@@ -2,7 +2,7 @@
 A Raspberry Pi cluster for the TopADD program
 
 The following discussion on configurations assumes one has physically built a Raspberry Pi cluster, for example: <br>
-<img src="https://user-images.githubusercontent.com/19493039/236486047-83bff4b4-61f6-40b2-8cef-3ce520924f31.png" width=50% height=50%>
+<img src="https://user-images.githubusercontent.com/19493039/236486047-83bff4b4-61f6-40b2-8cef-3ce520924f31.png" width=50% height=50%> <br>
 
 The above cluster consists of 5 nodes, including 1 login node (in the black case) and 4 computing node.
 
@@ -14,15 +14,15 @@ https://downloads.raspberrypi.org/imager/imager_latest.exe <br>
 ### 2. Flash the SDs
 Use Raspberry Pi imager to install OS on microSD <br>
 https://www.youtube.com/watch?v=ntaXWS8Lk34 <br>
-<img src="https://user-images.githubusercontent.com/19493039/236716118-559bbcb7-0bce-4ec0-99e0-819e191e2d1e.png" width=50% height=50%>
+<img src="https://user-images.githubusercontent.com/19493039/236716118-559bbcb7-0bce-4ec0-99e0-819e191e2d1e.png" width=50% height=50%> <br>
 
-<img src="https://user-images.githubusercontent.com/19493039/236950684-e8c50b4f-6f36-4516-915d-f12aaea5950a.png" width=50% height=50%>
+<img src="https://user-images.githubusercontent.com/19493039/236950684-e8c50b4f-6f36-4516-915d-f12aaea5950a.png" width=50% height=50%> <br>
 
 
 ### 3. Insert the SD card and boot
 Insert the microSD card/USB drive/external SSD drive to the Raspberry Pi. <br>
 Connect internet cable, mouse and keyboard, monitor. <br>
-Connect power supply and boot.
+Connect power supply and boot. <br>
 
 
 ### 4. Setup the OS
@@ -33,38 +33,38 @@ You will be asked to change password immediately after you login. You may change
 
 #### 4.1 Change hostname
 Check the hostname by:
-> hostname
+> hostname <br>
 
 You may want to change the hostname. <br>
 
 Change the hostname permanently
-> sudo hostnamectl set-hostname rpi0
+> sudo hostnamectl set-hostname rpi0 <br>
 
 #### 4.2 Enable SSH
 For Ubuntu 22.04, the SSH seems to be enabled by default.
 
 For other versions of Ubuntu, you may try the following steps to install and enable SSH: <br>
 Install OpenSSH server program:
-> sudo apt install openssh-server 
+> sudo apt install openssh-server <br>
 
 Check the status of the ssh server:
-> sudo systemctl status ssh
+> sudo systemctl status ssh <br>
 
 Use the UFW (Uncomplicated FireWall) to allow SSH connections:
-> sudo ufw allow ssh
-> sudo ufw enable
+> sudo ufw allow ssh <br>
+> sudo ufw enable <br>
 
 Check the UFW status:
-> sudo ufw status
+> sudo ufw status <br>
 
 #### 4.3 Internet connection
 Check ip address:
-> ip a
+> ip a <br>
 
 In the section of 'eth0', you may find inet 192.168.137.118 or something like it. That is the LAN ip address of the Pi. It is created by the router DHCP server. You may want to change it to a static ip.
 
 LAN
-> sudo nano /etc/netplan/01-network-manager-all.yaml
+> sudo nano /etc/netplan/01-network-manager-all.yaml <br>
 
 Type the following into the file:
 ```
@@ -88,7 +88,7 @@ network:
 ```
 
 You may also want to setup and connect the WIFI:
-> sudo nano /etc/netplan/01-network-manager-all.yaml
+> sudo nano /etc/netplan/01-network-manager-all.yaml <br>
 
 Add the following into the file:
 ```
@@ -110,11 +110,11 @@ Both LAN and Wifi should have been connected.
 
 
 You may want to change the hosts, which will be the ip and hostname for the other nodes in the cluster. The hosts can be changed as follows:
-> sudo nano /etc/hosts
+> sudo nano /etc/hosts <br>
 
 #### 4.4 Change hosts
 Hosts are the hosts ip and names for your other nodes in the cluster. You can check them in /etc/hosts. <br>
-> sudo /etc/hosts
+> sudo /etc/hosts <br>
 
 You can set them up by typing the following into the above file:
 ```
@@ -135,52 +135,53 @@ fe00::2 ip6-allrouters
 fe00::3 ip6-allhosts
 ```
 #### 4.5 Update OS
-> sudo apt-get update
+> sudo apt-get update <br>
 
 #### 4.5 Install make 
 "make" is used to build groups of programs from the source code.
-> sudo apt-get install make
+> sudo apt-get install make <br>
 
 #### 4.6 MPICH
-> sudo apt-get install mpich
+> sudo apt-get install mpich <br>
 
 #### 4.5 Install hypre
 Download hypre
-> wget -c https://github.com/hypre-space/hypre/archive/refs/tags/v2.19.0.tar.gz
+> wget -c https://github.com/hypre-space/hypre/archive/refs/tags/v2.19.0.tar.gz <br>
 
 Install hypre
-> tar -xof v2.19.0.tar.gz
-> cd hypre-2.19.0/src
-> ./configure --prefix=/home/ubuntu/opt --enable-shared
-> make -j4 install
+> tar -xof v2.19.0.tar.gz <br>
+> cd hypre-2.19.0/src <br>
+> ./configure --prefix=/home/ubuntu/opt --enable-shared <br>
+> make -j4 install <br>
 
 #### 4.6 Install libblas liblapack
 Lapack is a standard software library for numerical linear algebra. It relies on BLAS implementation.
 Install
-> sudo apt-get install libblas-dev liblapack-dev
+> sudo apt-get install libblas-dev liblapack-dev <br>
 
 #### 4.7 Install hypre
-> tar -xof v2.19.0.tar.gz
-> cd hypre-2.19.0/src
-> ./configure --prefix=/home/ubuntu/opt --enable-shared
-> make -j4 install
+> tar -xof v2.19.0.tar.gz <br>
+> cd hypre-2.19.0/src <br>
+> ./configure --prefix=/home/ubuntu/opt --enable-shared <br>
+> make -j4 install <br>
 
 #### 4.7 PETSc
 The official instruction: <br>
 https://petsc.org/main/install/install/ <br>
 
 Download PETSc
-> wget -c https://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-3.16.3.tar.gz
+> wget -c https://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-3.16.3.tar.gz <br>
 
 Install PETSc. <br>
-> tar -xof petsc-v3.17.1.tar.gz
-> cd petsc-3.17.1
+> tar -xof petsc-v3.17.1.tar.gz <br>
+> cd petsc-3.17.1 <br>
 > ./configure PETSC_DIR=/home/ubuntu/opt/petsc-3.16.3 PETSC_ARCH=arch-linux-mpicc-release --COPTFLAGS='-O3' --CXXOPTFLAGS='-O3' --FOPTFLAGS='-O3' --with-hypre-dir=/home/ubuntu/opt/hypre-2.19.0 --with-debugging=0 --with-cc=mpicc --with-cxx=mpicxx --with-fc=mpif90  <br>
+> make -j4 PETSC_DIR=/home/ubuntu/opt/petsc-3.16.3 PETSC_ARCH=arch-linux-mpicc-release all <br>
 
 #### 4.3 (optional if install ubuntu desktop) Enable screen sharing
 Connect a laptop to the switch <br>
-<img src="https://user-images.githubusercontent.com/19493039/236723444-743861a7-bd64-4de4-8e89-32581a72d0b0.png" width=50% height=50%>
-<img src="https://user-images.githubusercontent.com/19493039/236728172-8e493577-d68f-4e60-b645-2ea88bf02a1d.png" width=50% height=50%>
+<img src="https://user-images.githubusercontent.com/19493039/236723444-743861a7-bd64-4de4-8e89-32581a72d0b0.png" width=50% height=50%> <br>
+<img src="https://user-images.githubusercontent.com/19493039/236728172-8e493577-d68f-4e60-b645-2ea88bf02a1d.png" width=50% height=50%> <br>
 
 
 ### 5. Clone multiple microSD
@@ -189,7 +190,7 @@ Tutorial can be found: https://clonezilla.org/fine-print-live-doc.php?path=clone
 
 ### 6. Change the hostname accordingly
 For other nodes, change the hostname accordingly, for example rpi1:
-> sudo hostnamectl set-hostname rpi1
+> sudo hostnamectl set-hostname rpi1 <br>
 
 ### 7. Try run the TopADD program
 
