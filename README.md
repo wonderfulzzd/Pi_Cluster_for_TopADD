@@ -135,13 +135,26 @@ fe00::1 ip6-allnodes
 fe00::2 ip6-allrouters
 fe00::3 ip6-allhosts
 ```
+#### 4.5 Update OS
+> sudo apt-get update
+
+#### 4.5 Install make 
+"make" is used to build groups of programs from the source code.
+> sudo apt install make
+
+#### 4.6 MPICH
+> sudo apt install mpich
 
 #### 4.5 Install hypre
 Download hypre
 > wget -c https://github.com/hypre-space/hypre/archive/refs/tags/v2.19.0.tar.gz -O hypre-2.19.0.tar.gz
 
-#### 4.6 MPICH
-> sudo apt install mpich
+Install hypre
+> tar -xof hypre-2.19.0.tar.gz
+> cd hypre-2.19.0/src
+> ./configure --enable-shared 
+
+
 
 #### 4.7 PETSc
 On the NAS directory from step 3.1, called "clusterfs", install the software PETSc. <br>
