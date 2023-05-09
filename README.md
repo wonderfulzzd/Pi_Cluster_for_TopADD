@@ -294,9 +294,9 @@ Add the following line:
 > sudo mount -a <br>
 
 #### 8.11 Firewall settings
-> sudo ufw allow from 192.168.137.160/24 to any port nfs
-> sudo ufw enable
-> sudo ufw status
+> sudo ufw allow from 192.168.137.160/24 to any port nfs <br>
+> sudo ufw enable <br>
+> sudo ufw status <br>
 ```
 Status: active
 
