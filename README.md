@@ -116,7 +116,6 @@ You may want to change the hosts, which will be the ip and hostname for the othe
 Hosts are the hosts ip and names for your other nodes in the cluster. You can check them in /etc/hosts. <br>
 > sudo /etc/hosts
 
-
 You can set them up by typing the following into the above file:
 ```
 127.0.0.1 localhost
@@ -140,30 +139,43 @@ fe00::3 ip6-allhosts
 
 #### 4.5 Install make 
 "make" is used to build groups of programs from the source code.
-> sudo apt install make
+> sudo apt-get install make
 
 #### 4.6 MPICH
-> sudo apt install mpich
+> sudo apt-get install mpich
 
 #### 4.5 Install hypre
 Download hypre
-> wget -c https://github.com/hypre-space/hypre/archive/refs/tags/v2.19.0.tar.gz -O hypre-2.19.0.tar.gz
+> wget -c https://github.com/hypre-space/hypre/archive/refs/tags/v2.19.0.tar.gz
 
 Install hypre
-> tar -xof hypre-2.19.0.tar.gz
+> tar -xof v2.19.0.tar.gz
+> cd hypre-2.19.0/src
+> ./configure --prefix=/home/ubuntu/opt --enable-shared
+> make -j4 install
+
+#### 4.6 Install libblas liblapack
+Lapack is a standard software library for numerical linear algebra. It relies on BLAS implementation.
+Install
+> sudo apt-get install libblas-dev liblapack-dev
+
+#### 4.7 Install hypre
+> tar -xof v2.19.0.tar.gz
 > cd hypre-2.19.0/src
 > ./configure --prefix=/home/ubuntu/opt --enable-shared
 > make -j4 install
 
 #### 4.7 PETSc
-Download PETSc
-> wget -c https://gitlab.com/petsc/petsc/-/archive/v3.17.1/petsc-v3.17.1.tar.gz
-
-On the NAS directory from step 3.1, called "clusterfs", install the software PETSc. <br>
 The official instruction: <br>
 https://petsc.org/main/install/install/ <br>
-The configuration I used: <br>
-> ./configure PETSC_DIR=/home/ubuntu/opt/petsc-3.10.2 PETSC_ARCH=arch-linux-mpicc-release --COPTFLAGS='-O3' --CXXOPTFLAGS='-O3' --FOPTFLAGS='-O3' --with-hypre-dir=/clusterfs/opt/hypre-2.14.0 --with-debugging=0 --with-cc=mpicc --with-cxx=mpicxx --with-fc=mpif90  <br>
+
+Download PETSc
+> wget -c https://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-3.16.3.tar.gz
+
+Install PETSc. <br>
+> tar -xof petsc-v3.17.1.tar.gz
+> cd petsc-3.17.1
+> ./configure PETSC_DIR=/home/ubuntu/opt/petsc-3.16.3 PETSC_ARCH=arch-linux-mpicc-release --COPTFLAGS='-O3' --CXXOPTFLAGS='-O3' --FOPTFLAGS='-O3' --with-hypre-dir=/home/ubuntu/opt/hypre-2.19.0 --with-debugging=0 --with-cc=mpicc --with-cxx=mpicxx --with-fc=mpif90  <br>
 
 #### 4.3 (optional if install ubuntu desktop) Enable screen sharing
 Connect a laptop to the switch <br>
