@@ -77,7 +77,7 @@ network:
     ethernets:
         eth0:
             dhcp4: no
-            addresses: [192.168.137.161/24]
+            addresses: [192.168.137.160/24]
             nameservers:
                 addresses: [127.0.0.53, 8.8.8.8]
             routes:
@@ -177,20 +177,21 @@ Install PETSc. <br>
 > ./configure PETSC_DIR=/home/ubuntu/opt/petsc-3.16.3 PETSC_ARCH=arch-linux-mpicc-release --COPTFLAGS='-O3' --CXXOPTFLAGS='-O3' --FOPTFLAGS='-O3' --with-hypre-dir=/home/ubuntu/opt/hypre-2.19.0 --with-debugging=0 --with-cc=mpicc --with-cxx=mpicxx --with-fc=mpif90  <br>
 > make -j4 PETSC_DIR=/home/ubuntu/opt/petsc-3.16.3 PETSC_ARCH=arch-linux-mpicc-release all <br>
 
-#### 4.13 (optional if install ubuntu desktop) Enable screen sharing
-Connect a laptop to the switch <br>
-<img src="https://user-images.githubusercontent.com/19493039/236723444-743861a7-bd64-4de4-8e89-32581a72d0b0.png" width=50% height=50%> <br>
-<img src="https://user-images.githubusercontent.com/19493039/236728172-8e493577-d68f-4e60-b645-2ea88bf02a1d.png" width=50% height=50%> <br>
-
 
 ### 5. Clone multiple microSD
 Use an open-source software called Clonezilla: https://clonezilla.org/
 Tutorial can be found: https://clonezilla.org/fine-print-live-doc.php?path=clonezilla-live/doc/03_Disk_to_disk_clone
 
 
-### 6. Change the hostname accordingly
+### 6. Change the hostname and IP addresses accordingly
 For other nodes, change the hostname accordingly, for example rpi1:
 > sudo hostnamectl set-hostname rpi1 <br>
+Change the IP address
+> sudo nano /etc/netplan/01-network-manager-all.yaml <br>
+For example: 192.168.137.161 for rpi1 <br>
+             192.168.137.162 for rpi2 <br>
+             192.168.137.163 for rpi3 <br>
+             192.168.137.164 for rpi4 <br>
 
 
 ### 7. Set up password-less SSH login
@@ -231,6 +232,17 @@ Compile and run
 > mpiexec -n 16 -hostfile machinefile ./topopt
 
 The cluster has been successfully configured.
+
+
+### 9. (optional) Enable screen sharing
+If Ubuntu desktop is installed on a Raspberry Pi, then the Pi can be remotelly controlled. <br>
+<img src="https://user-images.githubusercontent.com/19493039/236723444-743861a7-bd64-4de4-8e89-32581a72d0b0.png" width=50% height=50%> <br>
+<img src="https://user-images.githubusercontent.com/19493039/236728172-8e493577-d68f-4e60-b645-2ea88bf02a1d.png" width=50% height=50%> <br>
+
+Install TightVNC Viewer on a Windows laptop/desktop. Connect the laptop to the switch connecting the Pi.
+<img src="https://user-images.githubusercontent.com/19493039/236950684-e8c50b4f-6f36-4516-915d-f12aaea5950a.png" width=50% height=50%> <br>
+
+![image](https://user-images.githubusercontent.com/19493039/237030336-ff45598e-e2f2-4481-aa05-497b94137b35.png)
 
 
 
