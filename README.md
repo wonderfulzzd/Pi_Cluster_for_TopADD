@@ -357,5 +357,10 @@ Install TightVNC Viewer on a Windows laptop/desktop. Connect the laptop to the s
    Use an open-source software called Clonezilla: https://clonezilla.org/
    Tutorial can be found: https://clonezilla.org/fine-print-live-doc.php?path=clonezilla-live/doc/03_Disk_to_disk_clone
 
-### 3. Insert the microSD cards into a Pi cluster
+### 3. Insert the SD card and boot
+Insert the microSD card/USB drive/external SSD drive to the Raspberry Pi. <br>
+Connect internet cable, mouse and keyboard, monitor. <br>
+Connect power supply and boot. <br>
+
+### Follow the step 6-9 in Method 1
 
