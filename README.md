@@ -207,8 +207,9 @@ Copy the key to remote desktop, e.g rpi1,
 Test the setup whether is successful
 > ssh ubuntu@rpi1 <br>
 
+
 ### 8. Network file system (NFS)
-A shared storage is needed on a cluster when each node needs to be able to access the same files. This can be achieved by setting up a net
+A shared storage is needed on a cluster when each node needs to be able to access the same files. This can be achieved by setting up a Network File System (NFS).
 
 #### 8.1 Check the identifier of the drive:
 Insert a flash drive or SSD drive into one of the USB prots on the master node. Then, find the drive's identifier by lsblk
@@ -274,10 +275,22 @@ In this step, we will grant access to the client system.
 > sudo exportfs -a
 
 #### 8.8 Grant Firewall access
-> sudo ufw allow from 192.168.137.160/24 to any port nfs
+Allow the Firewall access for connections within the subnet of 192.168.137.0/24. On each node, run the following command:
+> sudo ufw allow from 192.168.137.0/24 <br>
+> sudo ufw enable <br>
+> sudo ufw status <br>
+```
+Status: active
+
+To                         Action      From
+--                         ------      ----
+22/tcp                     ALLOW       Anywhere
+Anywhere                   ALLOW       192.168.137.0/24
+22/tcp (v6)                ALLOW       Anywhere (v6)
+```
 
 #### 8.9 Install NFS on other nodes
-> sudo apt=get install nfs-common <br>
+> sudo apt-get install nfs-common <br>
 > sudo mkdir /clusterfs <br>
 > sudo chown nobody:nogroup /clusterfs
 > sudo chmod -R 777 /clusterfs
@@ -293,26 +306,13 @@ Add the following line:
 ```
 > sudo mount -a <br>
 
-#### 8.11 Firewall settings
-> sudo ufw allow from 192.168.137.160/24 to any port nfs <br>
-> sudo ufw enable <br>
-> sudo ufw status <br>
-```
-Status: active
-
-To                         Action      From
---                         ------      ----
-22/tcp                     ALLOW       Anywhere
-2049                       ALLOW       192.168.137.0/24
-22/tcp (v6)                ALLOW       Anywhere (v6)
-```
-
 Reference: <br>
 https://glmdev.medium.com/building-a-raspberry-pi-cluster-784f0df9afbd <br>
 https://linuxhint.com/install-and-configure-nfs-server-ubuntu-22-04/   <br>
 
 ### 9. Try run the TopADD program
 Clone the TopADD repo on github
+> cd /clusterfs
 > git clone https://github.com/wonderfulzzd/TopADD_2D_3D_Arbitrary_TopOpt_in_PETSc.git <br>
 > cd TopADD_2D_3D_Arbitrary_TopOpt_in_PETSc <br>
 
