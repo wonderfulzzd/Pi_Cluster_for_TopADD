@@ -112,12 +112,11 @@ Then generate and apply the netplan settings：
 Both LAN and Wifi should have been connected.
 
 
-You may want to change the hosts, which will be the ip and hostname for the other nodes in the cluster. The hosts can be changed as follows:
 > sudo nano /etc/hosts <br>
 
 #### 4.5 Change hosts
-Hosts are the hosts ip and names for your other nodes in the cluster. You can check them in /etc/hosts. <br>
-> sudo /etc/hosts <br>
+Hosts are the hosts ip and names for your other nodes in the cluster. You may want to change the hosts, which will be the ip and hostname for the other nodes in the cluster. The hosts can be changed as follows: <br>
+> sudo nano /etc/hosts <br>
 
 You can set them up by typing the following into the above file:
 ```
