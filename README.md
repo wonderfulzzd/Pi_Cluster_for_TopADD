@@ -30,6 +30,10 @@ Connect power supply and boot. <br>
 For Ubuntu 22.04, the default user name and password are both 'ubuntu' if you did not create a user name and password in the Advanced options menu when flashing the SD card. <br>
 You will be asked to change password immediately after you login. You may change the password to 'raspberry'. <br>
 
+In this cluster, we set 
+Username: ubuntu
+Password: raspberry
+
 #### 4.2 Change hostname
 Check the hostname by:
 > hostname <br>
