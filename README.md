@@ -1,5 +1,5 @@
 # Pi_Cluster_for_TopADD
-A Raspberry Pi cluster for the TopADD program
+A Raspberry Pi cluster for the TopADD program. The TopADD program can be downloaded from: https://github.com/wonderfulzzd/TopADD_2D_3D_Arbitrary_TopOpt_in_PETSc.git
 
 The following discussion on configurations assumes one has physically built a Raspberry Pi cluster, for example: <br>
 <img src="https://user-images.githubusercontent.com/19493039/236486047-83bff4b4-61f6-40b2-8cef-3ce520924f31.png" width=50% height=50%> <br>
