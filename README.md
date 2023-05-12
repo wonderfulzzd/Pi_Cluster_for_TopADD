@@ -147,28 +147,22 @@ Before update the OS, it may need to reboot. Otherwise, error of
 #### 4.8 MPICH
 > sudo apt-get install mpich <br>
 
-#### 4.9 Install hypre
+#### 4.9 Install libblas liblapack
+Lapack is a standard software library for numerical linear algebra. It relies on BLAS implementation.
+Install
+> sudo apt-get install libblas-dev liblapack-dev <br>
+
+#### 4.10 Install hypre
 Download hypre
 > wget -c https://github.com/hypre-space/hypre/archive/refs/tags/v2.19.0.tar.gz <br>
 
 Install hypre
 > tar -xof v2.19.0.tar.gz <br>
 > cd hypre-2.19.0/src <br>
-> ./configure --prefix=/home/ubuntu/opt --enable-shared <br>
+> ./configure --prefix=/home/ubuntu/opt/hypre-2.19.0 --enable-shared <br>
 > make -j4 install <br>
 
-#### 4.10 Install libblas liblapack
-Lapack is a standard software library for numerical linear algebra. It relies on BLAS implementation.
-Install
-> sudo apt-get install libblas-dev liblapack-dev <br>
-
-#### 4.11 Install hypre
-> tar -xof v2.19.0.tar.gz <br>
-> cd hypre-2.19.0/src <br>
-> ./configure --prefix=/home/ubuntu/opt --enable-shared <br>
-> make -j4 install <br>
-
-#### 4.12 Install PETSc
+#### 4.11 Install PETSc
 The official instruction: <br>
 https://petsc.org/main/install/install/ <br>
 
