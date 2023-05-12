@@ -78,7 +78,6 @@ Type the following into the file:
 # network: {config: disabled}
 network:
     version: 2
-    renderer: NetworkManager
     ethernets:
         eth0:
             dhcp4: no
@@ -351,6 +350,30 @@ If Ubuntu desktop is installed on a Raspberry Pi, then the Pi can be remotelly c
 
 Install TightVNC Viewer on a Windows laptop/desktop. Connect the laptop to the switch connecting the Pi.
 <img src="https://user-images.githubusercontent.com/19493039/237030336-ff45598e-e2f2-4481-aa05-497b94137b35.png" width=50% height=50%> <br>
+
+Note: to share the media, networkmanager need to be enable. So add "renderer: NetworkManager" in the netplan configuration file. <br>
+> sudo nano /etc/netplan/01-network-manager-all.yaml <br> 
+
+```
+# This file is generated from information provided by the datasource.  Changes
+# to it will not persist across an instance reboot.  To disable cloud-init's
+# network configuration capabilities, write a file
+# /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:
+# network: {config: disabled}
+network:
+    version: 2
+    renderer: NetworkManager
+    ethernets:
+        eth0:
+            dhcp4: no
+            addresses: [192.168.137.160/24]
+            nameservers:
+                addresses: [127.0.0.53, 8.8.8.8]
+            routes:
+                - to: default
+                  via: 192.168.137.1
+            optional: true
+```
 
 
 
