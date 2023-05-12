@@ -78,6 +78,7 @@ Type the following into the file:
 # network: {config: disabled}
 network:
     version: 2
+    renderer: NetworkManager
     ethernets:
         eth0:
             dhcp4: no
@@ -136,7 +137,8 @@ fe00::1 ip6-allnodes
 fe00::2 ip6-allrouters
 fe00::3 ip6-allhosts
 ```
-#### 4.6 Update OS
+#### 4.6 Update the OS
+Before update the OS, it may need to reboot. Otherwise, error of 
 > sudo apt-get update <br>
 
 #### 4.7 Install make 
