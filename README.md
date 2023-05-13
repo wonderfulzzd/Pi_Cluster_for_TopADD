@@ -369,6 +369,9 @@ network:
             optional: true
 ```
 
+Note if you are experiencing that each typing character is captitalized, then just press "shift" + "CapsLock" at the same time to go back to normal state. <br>
+Reference: https://askubuntu.com/a/1320639/846362
+
 
 
 ## Method 2: Restore from the provided image files
