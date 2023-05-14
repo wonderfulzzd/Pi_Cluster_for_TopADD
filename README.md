@@ -394,9 +394,10 @@ In order to postprocessing the topology optimization results, paraview is requir
 
 To get paraview work properly, the display server should be changed from Wayland to Xorg. One need to edit the custom.conf file in /etc/gdm3. <br>
 > sudo nano /etc/gdm3/custom.conf <br>
-Change 
+
+Change the commented the line <br> 
 ```
-WaylandEnable=true 
+#WaylandEnable=false 
 ```
 to 
 ```
