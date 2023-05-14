@@ -337,7 +337,14 @@ Compile and run
 The cluster has been successfully configured.
 
 
-### 10. (optional) Enable screen sharing
+### 10. (optional) Ubuntu desktop
+
+#### 10.1 Install Ubuntu desktop
+Same as step 2, use Raspberry Pi imager to install Ubuntu desktop on microSD. We need to select Ubuntu desktop 22.04 this time instead of Ubuntu server. <br>
+<img src="https://user-images.githubusercontent.com/19493039/236950684-e8c50b4f-6f36-4516-915d-f12aaea5950a.png" width=50% height=50%> <br>
+
+
+#### 10.2 Enable screen sharing
 If Ubuntu desktop is installed on a Raspberry Pi, then the Pi can be remotelly controlled. <br>
 <img src="https://user-images.githubusercontent.com/19493039/236723444-743861a7-bd64-4de4-8e89-32581a72d0b0.png" width=80% height=80%> <br>
 <img src="https://user-images.githubusercontent.com/19493039/236728172-8e493577-d68f-4e60-b645-2ea88bf02a1d.png" width=80% height=80%> <br>
