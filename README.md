@@ -359,7 +359,7 @@ network:
     renderer: NetworkManager
     ethernets:
         eth0:
-            dhcp4: no
+            dhcp4: false
             addresses: [192.168.137.160/24]
             nameservers:
                 addresses: [127.0.0.53, 8.8.8.8]
