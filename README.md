@@ -395,7 +395,7 @@ Before install paraview, the openGL library should be installed: <br>
 > sudo apt-get install freeglut3-dev <br>
 
 Then install paraview by: <br>
-> sudo apt install paraview <br>
+> sudo apt install paraview-dev <br>
 
 To get paraview work properly, the display server should be changed from Wayland to Xorg. One need to edit the custom.conf file in /etc/gdm3. <br>
 > sudo nano /etc/gdm3/custom.conf <br>
