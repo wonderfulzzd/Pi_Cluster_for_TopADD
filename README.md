@@ -343,8 +343,20 @@ The cluster has been successfully configured.
 Same as step 2, use Raspberry Pi imager to install Ubuntu desktop on microSD. We need to select Ubuntu desktop 22.04 this time instead of Ubuntu server. <br>
 <img src="https://github.com/wonderfulzzd/Pi_Cluster_for_TopADD/assets/19493039/22937a85-9b3a-485f-a76c-2cbfda7468fa" width=50% height=50%> <br>
 
+#### 10.2 Setup OS
+The setup processes are as same as those shown in step 4. The only difference is that the Ubuntu desktop does not come along with the SSH program. It can be installed by: <br>
+> sudo apt install openssh-server <br>
 
-#### 10.2 Enable screen sharing
+#### 10.3 Change the hostname and IP addresses accordingly
+Same as step 6.
+
+#### 10.4 Set up password-less SSH login
+Same as step 7.
+
+#### 10.5 Network file system (NFS)
+Same as step 8.
+
+#### 10.6 Enable screen sharing
 If Ubuntu desktop is installed on a Raspberry Pi, then the Pi can be remotelly controlled. <br>
 <img src="https://user-images.githubusercontent.com/19493039/236723444-743861a7-bd64-4de4-8e89-32581a72d0b0.png" width=80% height=80%> <br>
 <img src="https://user-images.githubusercontent.com/19493039/236728172-8e493577-d68f-4e60-b645-2ea88bf02a1d.png" width=80% height=80%> <br>
@@ -376,7 +388,21 @@ network:
             optional: true
 ```
 
+#### 10.7 Install paraview
+In order to postprocessing the topology optimization results, paraview is required to be installed. <br>
+> sudo apt install paraview
 
+To get paraview work properly, the display server should be changed from Wayland to Xorg. One need to edit the custom.conf file in /etc/gdm3. <br>
+> sudo nano /etc/gdm3/custom.conf <br>
+Change 
+```
+WaylandEnable=true 
+```
+to 
+```
+WaylandEnable=false
+```
+Restart the system.
 
 ## Method 2: Restore from the provided image files
 ### 1. Download the saved OS image file
