@@ -341,7 +341,7 @@ The cluster has been successfully configured.
 
 #### 10.1 Install Ubuntu desktop
 Same as step 2, use Raspberry Pi imager to install Ubuntu desktop on microSD. We need to select Ubuntu desktop 22.04 this time instead of Ubuntu server. <br>
-<img src="https://user-images.githubusercontent.com/19493039/236950684-e8c50b4f-6f36-4516-915d-f12aaea5950a.png" width=50% height=50%> <br>
+<img src="https://github.com/wonderfulzzd/Pi_Cluster_for_TopADD/assets/19493039/22937a85-9b3a-485f-a76c-2cbfda7468fa" width=50% height=50%> <br>
 
 
 #### 10.2 Enable screen sharing
