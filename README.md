@@ -418,5 +418,5 @@ Insert the microSD card/USB drive/external SSD drive to the Raspberry Pi. <br>
 Connect internet cable, mouse and keyboard, monitor. <br>
 Connect power supply and boot. <br>
 
-### 4. Follow the step 6-9 in Method 1
+### 4. Follow the step 6-10 in Method 1
 
