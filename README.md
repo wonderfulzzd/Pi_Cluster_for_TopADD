@@ -380,12 +380,8 @@ If you prefer a UI eniveroment, you can install an ubuntu-desktop on the login n
 > sudo reboot <br>
 > sudo apt update <br>
 > sudo apt install ubuntu-desktop <br>
- 
-#### 10.2 Setup OS
-The setup processes are as same as those shown in step 4. The only difference is that the Ubuntu desktop does not come along with the SSH program. It can be installed by: <br>
-> sudo apt install openssh-server <br>
 
-#### 10.3 Enable screen sharing
+#### 10.2 Enable screen sharing
 If Ubuntu desktop is installed on a Raspberry Pi, then the Pi can be remotelly controlled. <br>
 <img src="https://user-images.githubusercontent.com/19493039/236723444-743861a7-bd64-4de4-8e89-32581a72d0b0.png" width=80% height=80%> <br>
 <img src="https://user-images.githubusercontent.com/19493039/236728172-8e493577-d68f-4e60-b645-2ea88bf02a1d.png" width=80% height=80%> <br>
@@ -417,7 +413,7 @@ network:
             optional: true
 ```
 
-#### 10.4 Install paraview
+#### 10.3 Install paraview
 In order to postprocessing the topology optimization results, paraview is required to be installed. <br>
 
 Before install paraview, the openGL library should be installed: <br>
