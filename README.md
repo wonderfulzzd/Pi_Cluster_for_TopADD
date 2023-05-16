@@ -113,8 +113,23 @@ Then generate and apply the netplan settings：
 
 Both LAN and Wifi should have been connected.
 
+If you want to prioritize wifi connection over ethernet connection, you have to do as following steps: <br>
+Pull off the ethernet cable and you will have internet connection through wifi. <br>
+> sudo apt install net-tools <br>
+> sudo apt install ifmetric <br>
+> route -n <br>
+You may see something similar to the following info: <br>
+```
+Destination     Gateway     Genmask       Flags       Metric       Ref      Use     Iface
+0.0.0.0        192.168.137.1  0.0.0.0      UG         0            0        0       eth0
+0.0.0.0        192.168.43.1   0.0.0.0      UG         600          0        0       wlan0
+```
+> sudo ifmetric eth0 700
 
-> sudo nano /etc/hosts <br>
+
+Before update the OS, we need to reboot the rpi. <br>
+> sudo reboot <br>
+
 
 #### 4.5 Change hosts
 Hosts are the hosts ip and names for your other nodes in the cluster. You may want to change the hosts, which will be the ip and hostname for the other nodes in the cluster. The hosts can be changed as follows: <br>
@@ -138,6 +153,7 @@ fe00::1 ip6-allnodes
 fe00::2 ip6-allrouters
 fe00::3 ip6-allhosts
 ```
+
 #### 4.6 Update the OS
 Before update the OS, it may need to reboot. Otherwise, error of 
 > sudo apt-get update <br>
