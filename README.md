@@ -377,6 +377,8 @@ The cluster has been successfully configured.
 
 #### 10.1 Install Ubuntu desktop
 If you prefer a UI eniveroment, you can install an ubuntu-desktop on the login node. <br>
+> sudo reboot <br>
+> sudo apt update <br>
 > sudo apt install ubuntu-desktop <br>
  
 #### 10.2 Setup OS
