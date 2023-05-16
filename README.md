@@ -211,9 +211,11 @@ Tutorial can be found: https://clonezilla.org/fine-print-live-doc.php?path=clone
 ### 6. Change the hostname and IP addresses accordingly
 For other nodes, change the hostname accordingly, for example rpi1:
 > sudo hostnamectl set-hostname rpi1 <br>
-Change the IP address
+
+Change the IP address <br>
 > sudo nano /etc/netplan/50-cloud-init.yaml <br>
-Or for some other ubuntu version
+
+Or for some other ubuntu version <br>
 > sudo nano /etc/netplan/01-network-manager-all.yaml <br>
 
 For example: <br>
@@ -225,13 +227,18 @@ For example: <br>
 
 ### 7. Set up password-less SSH login
 Enable to login to a remote computer via ssh without having to enter the password
-Go to .ssh directory
+Go to .ssh directory <br
 > cd ~/.ssh <br>
-Generate a SSH key
-> ssh-keygen <br>
-Copy the key to remote desktop, e.g rpi1,
-> ssh-copy-id ubuntu@rpi1 <br>
-Test the setup whether is successful
+
+Generate a SSH key <br>
+> sudo ssh-keygen <br>
+
+Press the "enter" button three times. <br> 
+
+Copy the key to remote desktop, e.g rpi1 <br>
+> sudo ssh-copy-id ubuntu@rpi1 <br>
+
+Test the setup whether is successful <br>
 > ssh ubuntu@rpi1 <br>
 
 
