@@ -131,7 +131,6 @@ After doing the above, priority will be changed to: <br>
 Destination     Gateway     Genmask       Flags       Metric       Ref      Use     Iface
 0.0.0.0        192.168.43.1   0.0.0.0      UG         600          0        0       wlan0
 0.0.0.0        192.168.137.1  0.0.0.0      UG         700            0        0       eth0
-
 ```
 
 
