@@ -120,9 +120,9 @@ Pull off the ethernet cable and you will have internet connection through wifi. 
 > route -n <br>
 You may see something similar to the following info: <br>
 ```
-Destination     Gateway     Genmask       Flags       Metric       Ref      Use     Iface
-0.0.0.0        192.168.137.1  0.0.0.0      UG         0            0        0       eth0
-0.0.0.0        192.168.43.1   0.0.0.0      UG         600          0        0       wlan0
+Destination     Gateway     Genmask       Flags       Metric       Ref      Use     Iface <br>
+0.0.0.0        192.168.137.1  0.0.0.0      UG         0            0        0       eth0  <br>
+0.0.0.0        192.168.43.1   0.0.0.0      UG         600          0        0       wlan0  <br>
 ```
 > sudo ifmetric eth0 700 <br>
 
