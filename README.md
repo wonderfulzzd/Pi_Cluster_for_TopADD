@@ -15,7 +15,7 @@ https://downloads.raspberrypi.org/imager/imager_latest.exe <br>
 ### 2. Flash the SDs
 Use Raspberry Pi imager to install OS on microSD <br>
 https://www.youtube.com/watch?v=ntaXWS8Lk34 <br>
-<img src="https://user-images.githubusercontent.com/19493039/236950684-e8c50b4f-6f36-4516-915d-f12aaea5950a.png" width=50% height=50%> <br>
+<img src="https://github.com/wonderfulzzd/Pi_Cluster_for_TopADD/assets/19493039/dcf5c17f-0098-4457-b3ee-35ff8e135bb1" width=50% height=50%> <br>
 
 
 ### 3. Insert the SD card and boot
