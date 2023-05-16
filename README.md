@@ -44,7 +44,7 @@ Change the hostname permanently
 > sudo hostnamectl set-hostname rpi0 <br>
 
 #### 4.3 Enable SSH
-For Ubuntu 22.04, the SSH seems to be enabled by default.
+For Ubuntu 20.04, the SSH seems to be enabled by default.
 
 For other versions of Ubuntu, you may try the following steps to install and enable SSH: <br>
 Install OpenSSH server program:
@@ -67,6 +67,8 @@ Check ip address:
 In the section of 'eth0', you may find inet 192.168.137.118 or something like it. That is the LAN ip address of the Pi. It is created by the router DHCP server. You may want to change it to a static ip.
 
 LAN
+> sudo nano /etc/netplan/50-cloud-init.yaml <br>
+Or for some other ubuntu version
 > sudo nano /etc/netplan/01-network-manager-all.yaml <br>
 
 Type the following into the file:
@@ -77,7 +79,6 @@ Type the following into the file:
 # /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:
 # network: {config: disabled}
 network:
-    version: 2
     ethernets:
         eth0:
             dhcp4: no
@@ -88,6 +89,7 @@ network:
                 - to: default
                   via: 192.168.137.1
             optional: true
+    version: 2
 ```
 
 You may also want to setup and connect the WIFI:
@@ -259,7 +261,7 @@ Finally mount
 > sudo mount -a
 
 #### 8.5 Install NFS server
-In this step run the below command in Ubuntu 22.04 terminal for NFS server installation.
+In this step run the below command in Ubuntu 20.04 terminal for NFS server installation.
 > sudo apt install nfs-kernel-server <br>
 
 #### 8.6 Grant NFS access
@@ -340,7 +342,7 @@ The cluster has been successfully configured.
 ### 10. (optional) Ubuntu desktop
 
 #### 10.1 Install Ubuntu desktop
-Same as step 2, use Raspberry Pi imager to install Ubuntu desktop on microSD. We need to select Ubuntu desktop 22.04 this time instead of Ubuntu server. <br>
+Same as step 2, use Raspberry Pi imager to install Ubuntu desktop on microSD. We need to select Ubuntu desktop 20.04 this time instead of Ubuntu server. <br>
 <img src="https://github.com/wonderfulzzd/Pi_Cluster_for_TopADD/assets/19493039/22937a85-9b3a-485f-a76c-2cbfda7468fa" width=50% height=50%> <br>
 
 #### 10.2 Setup OS
