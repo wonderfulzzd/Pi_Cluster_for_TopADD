@@ -178,6 +178,8 @@ Install
 
 #### 4.10 Install hypre
 Download hypre
+> mkdir opt <br>
+> cd top <br>
 > wget -c https://github.com/hypre-space/hypre/archive/refs/tags/v2.19.0.tar.gz <br>
 
 Install hypre
@@ -191,6 +193,7 @@ The official instruction: <br>
 https://petsc.org/main/install/install/ <br>
 
 Download PETSc
+> cd ~/ubuntu/opt
 > wget -c https://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-3.16.3.tar.gz <br>
 
 Install PETSc. <br>
@@ -209,6 +212,8 @@ Tutorial can be found: https://clonezilla.org/fine-print-live-doc.php?path=clone
 For other nodes, change the hostname accordingly, for example rpi1:
 > sudo hostnamectl set-hostname rpi1 <br>
 Change the IP address
+> sudo nano /etc/netplan/50-cloud-init.yaml <br>
+Or for some other ubuntu version
 > sudo nano /etc/netplan/01-network-manager-all.yaml <br>
 
 For example: <br>
@@ -254,7 +259,7 @@ So the drive identifier is /dev/sda1
 > sudo mkfs.ext4 /dev/sda1
 
 #### 8.3 Create the mount directory
-Created /clusterfs, and make it below to anyone by setting nobody:nogroup. Also enable it to do all operations, e.g. write, read, execute by setting chmod 777.
+Create a directory, e.g. /clusterfs, and make its permission level below to anyone by setting nobody:nogroup. Also enable it to do all operations, e.g. write, read, execute by setting chmod 777.
 > sudo mkdir /clusterfs <br>
 > sudo chown nobody:nogroup -R /clusterfs <br>
 > sudo chmod 777 -R /clusterfs
