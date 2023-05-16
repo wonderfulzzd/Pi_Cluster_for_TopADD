@@ -133,11 +133,6 @@ Destination     Gateway     Genmask       Flags       Metric       Ref      Use 
 0.0.0.0        192.168.137.1  0.0.0.0      UG         700            0        0       eth0
 ```
 
-
-Before update the OS, we need to reboot the rpi. <br>
-> sudo reboot <br>
-
-
 #### 4.5 Change hosts
 Hosts are the hosts ip and names for your other nodes in the cluster. You may want to change the hosts, which will be the ip and hostname for the other nodes in the cluster. The hosts can be changed as follows: <br>
 > sudo nano /etc/hosts <br>
@@ -160,6 +155,10 @@ fe00::1 ip6-allnodes
 fe00::2 ip6-allrouters
 fe00::3 ip6-allhosts
 ```
+
+Before update the OS, we need to reboot the rpi. <br>
+> sudo reboot <br>
+
 
 #### 4.6 Update the OS
 Before update the OS, it may need to reboot. Otherwise, error of 
