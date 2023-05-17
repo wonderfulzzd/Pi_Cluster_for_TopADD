@@ -422,6 +422,12 @@ network:
                     password: "12345678"
             dhcp4: true
 ```
+There is one more pitfall. When we try to remotely control, the error message may be received 
+<img src="https://github.com/wonderfulzzd/Pi_Cluster_for_TopADD/assets/19493039/99a8d875-3dbd-4bac-a69a-7d71aff81fbe" width=50% height=50%> <br>
+
+This error can be corrected by disable the encryption of the Vino server. Vino server is taking in charge of the screen sharing. <br>
+> gsettings set org.gnome.Vino require-encryption false <br>
+
 
 #### 10.3 Install paraview
 In order to postprocessing the topology optimization results, paraview is required to be installed. <br>
@@ -429,10 +435,27 @@ In order to postprocessing the topology optimization results, paraview is requir
 Install paraview by: <br>
 > sudo apt install paraview-dev <br>
 
+#### 10.4 Update mpi priority
+After installing paraview, another version of mpi, called OpenMPI will be automatically install. This will interference with the previously install mpich. So like when we compile the topopt program <br>
+> make -j4 topopt <br>
+
+We may get the error message: <br>
+```
+# error "PETSc was configured with MPICH but now appears to be compiling using a non-MPICH mpi.h"
+```
+
+This error shows up because the OpenMPI has a higher priority than MPICH. This can be confirmed by <br>
+> update-alternatives --query mpi <br>
+
+
+#### 10.4 Install python2
 To process the generated topology optimization results, python2 should be install by <br>
 > sudo apt install python2 <br>
 
-Restart the system.
+#### 10.5 Restart
+Restart the system <br>
+> sudo reboot <br>
+
 
 ## Method 2: Restore from the provided image files
 ### 1. Download the saved OS image file
