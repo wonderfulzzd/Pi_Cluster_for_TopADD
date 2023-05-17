@@ -43,24 +43,7 @@ You may want to change the hostname. <br>
 Change the hostname permanently
 > sudo hostnamectl set-hostname rpi0 <br>
 
-#### 4.3 Enable SSH
-For Ubuntu 20.04, the SSH seems to be enabled by default.
-
-For other versions of Ubuntu, you may try the following steps to install and enable SSH: <br>
-Install OpenSSH server program:
-> sudo apt install openssh-server <br>
-
-Check the status of the ssh server:
-> sudo systemctl status ssh <br>
-
-Use the UFW (Uncomplicated FireWall) to allow SSH connections:
-> sudo ufw allow ssh <br>
-> sudo ufw enable <br>
-
-Check the UFW status:
-> sudo ufw status <br>
-
-#### 4.4 Internet connection
+#### 4.3 Internet connection
 Check ip address:
 > ip a <br>
 
@@ -79,7 +62,6 @@ Type the following into the file:
 # /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:
 # network: {config: disabled}
 network:
-    version: 2
     renderer: networkd
     ethernets:
         eth0:
@@ -91,6 +73,7 @@ network:
                 - to: default
                   via: 192.168.137.1
             optional: true
+    version: 2
 ```
 
 You may also want to setup and connect the WIFI:
@@ -148,7 +131,7 @@ Destination     Gateway     Genmask       Flags       Metric       Ref      Use 
 
 Now you can access to the Internet through wifi.
 
-#### 4.5 Change hosts
+#### 4.4 Change hosts
 Hosts are the hosts ip and names for your other nodes in the cluster. You may want to change the hosts, which will be the ip and hostname for the other nodes in the cluster. The hosts can be changed as follows: <br>
 > sudo nano /etc/hosts <br>
 
@@ -175,9 +158,26 @@ Before update the OS, we need to reboot the rpi. <br>
 > sudo reboot <br>
 
 
-#### 4.6 Update the OS
+#### 4.5 Update the OS
 Before update the OS, it may need to reboot. Otherwise, error of 
 > sudo apt-get update <br>
+
+#### 4.6 Enable SSH
+For Ubuntu 20.04, the SSH seems to be enabled by default.
+
+For other versions of Ubuntu, you may try the following steps to install and enable SSH: <br>
+Install OpenSSH server program:
+> sudo apt install openssh-server <br>
+
+Check the status of the ssh server:
+> sudo systemctl status ssh <br>
+
+Use the UFW (Uncomplicated FireWall) to allow SSH connections:
+> sudo ufw allow ssh <br>
+> sudo ufw enable <br>
+
+Check the UFW status:
+> sudo ufw status <br>
 
 #### 4.7 Install make 
 "make" is used to build groups of programs from the source code.
@@ -420,7 +420,6 @@ Note: to share the media, networkmanager need to be enable. So change the render
 # /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:
 # network: {config: disabled}
 network:
-    version: 2
 #    renderer: networkd
     renderer: NetworkManager
     ethernets:
@@ -433,6 +432,8 @@ network:
                 - to: default
                   via: 192.168.137.1
             optional: true
+    version: 2
+
             
     wifis:
         wlan0:
