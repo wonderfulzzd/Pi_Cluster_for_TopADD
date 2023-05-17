@@ -97,42 +97,6 @@ Then generate and apply the netplan settings：
 
 Both LAN and Wifi should have been connected.
 
-If you only have internet access through wifi and want to prioritize wifi connection over ethernet connection, you have to do as following steps: <br>
-Comment off the ethernet settings in the file /etc/netplan/01-network-manager-all.yaml <br>
-Then generate and apply the netplan settings：
-> sudo netplan generate <br>
-> sudo netplan apply <br>
-
-Reboot and install some necessary network programs. <br>
-> sudo reboot <br>
-> sudo apt install net-tools <br>
-> sudo apt install ifmetric <br>
-
-Uncomment off the ethernet settings in the file /etc/netplan/01-network-manager-all.yaml <br>
-Then generate and apply the netplan settings：
-> sudo netplan generate <br>
-> sudo netplan apply <br>
-> sudo reboot
-
-> route -n <br>
-
-You may see something similar to the following info: <br>
-```
-Destination     Gateway     Genmask       Flags       Metric       Ref      Use     Iface
-0.0.0.0        192.168.137.1  0.0.0.0      UG         0            0        0       eth0 
-0.0.0.0        192.168.43.1   0.0.0.0      UG         600          0        0       wlan0
-```
-> sudo ifmetric eth0 700 <br>
-
-After doing the above, priority will be changed to: <br>
-```
-Destination     Gateway     Genmask       Flags       Metric       Ref      Use     Iface
-0.0.0.0        192.168.43.1   0.0.0.0      UG         600          0        0       wlan0
-0.0.0.0        192.168.137.1  0.0.0.0      UG         700          0        0       eth0
-```
-
-Now you can access to the Internet through wifi.
-
 #### 4.4 Change hosts
 Hosts are the hosts ip and names for your other nodes in the cluster. You may want to change the hosts, which will be the ip and hostname for the other nodes in the cluster. The hosts can be changed as follows: <br>
 > sudo nano /etc/hosts <br>
@@ -487,6 +451,11 @@ We can manually select mpich as the mpi library by: <br>
 
 Then type the selection number: 1 to use mpich in manual mode. <br>
 <img src="https://github.com/wonderfulzzd/Pi_Cluster_for_TopADD/assets/19493039/3045e4b4-c6dc-4dfa-a418-e64d154f4adb" width=50% height=50%> <br>
+
+Similarly, for mpirun <br>
+> sudo update-alternatives --config mpirun <br>
+
+Then type the selection number: 1 to use mpich in manual mode. <br>
 
 
 #### 10.6 Install python2
