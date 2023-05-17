@@ -419,17 +419,9 @@ In order to postprocessing the topology optimization results, paraview is requir
 Install paraview by: <br>
 > sudo apt install paraview-dev <br>
 
-To get paraview work properly, the display server should be changed from Wayland to Xorg. One need to edit the custom.conf file in /etc/gdm3. <br>
-> sudo nano /etc/gdm3/custom.conf <br>
+To process the generated topology optimization results, python2 should be install by <br>
+> sudo apt install python2 <br>
 
-Change the commented the line <br> 
-```
-#WaylandEnable=false 
-```
-to 
-```
-WaylandEnable=false
-```
 Restart the system.
 
 ## Method 2: Restore from the provided image files
