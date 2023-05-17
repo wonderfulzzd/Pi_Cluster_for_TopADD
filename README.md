@@ -97,7 +97,7 @@ Then generate and apply the netplan settings：
 
 Both LAN and Wifi should have been connected.
 
-If you only have access through wifi and want to prioritize wifi connection over ethernet connection, you have to do as following steps: <br>
+If you only have internet access through wifi and want to prioritize wifi connection over ethernet connection, you have to do as following steps: <br>
 Comment off the ethernet settings in the file /etc/netplan/01-network-manager-all.yaml <br>
 Then generate and apply the netplan settings：
 > sudo netplan generate <br>
