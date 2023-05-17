@@ -460,7 +460,12 @@ We may get the error message: <br>
 
 This error shows up because the OpenMPI has a higher priority than MPICH. This can be confirmed by <br>
 > update-alternatives --query mpi <br>
-> 
+
+We can manually select mpich as the mpi library by: <br>
+> sudo update-alternatives --config mpi <br>
+
+Then type the selection number: 1 to use mpich in manual mode. <br>
+<img src="https://github.com/wonderfulzzd/Pi_Cluster_for_TopADD/assets/19493039/3045e4b4-c6dc-4dfa-a418-e64d154f4adb" width=50% height=50%> <br>
 
 
 #### 10.6 Install python2
