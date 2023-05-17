@@ -114,10 +114,21 @@ Then generate and apply the netplan settings：
 
 Both LAN and Wifi should have been connected.
 
-If you want to prioritize wifi connection over ethernet connection, you have to do as following steps: <br>
-Pull off the ethernet cable and reboot. You will have internet connection through wifi. <br>
+If you only have access through wifi and want to prioritize wifi connection over ethernet connection, you have to do as following steps: <br>
+Comment off the ethernet settings in the file /etc/netplan/01-network-manager-all.yaml <br>
+Then generate and apply the netplan settings：
+> sudo netplan generate <br>
+> sudo netplan apply <br>
+> reboot
 > sudo apt install net-tools <br>
 > sudo apt install ifmetric <br>
+
+Uncomment off the ethernet settings in the file /etc/netplan/01-network-manager-all.yaml <br>
+Then generate and apply the netplan settings：
+> sudo netplan generate <br>
+> sudo netplan apply <br>
+> reboot
+
 > route -n <br>
 
 You may see something similar to the following info: <br>
@@ -134,6 +145,8 @@ Destination     Gateway     Genmask       Flags       Metric       Ref      Use 
 0.0.0.0        192.168.43.1   0.0.0.0      UG         600          0        0       wlan0
 0.0.0.0        192.168.137.1  0.0.0.0      UG         700          0        0       eth0
 ```
+
+Now you can access to the Internet through wifi.
 
 #### 4.5 Change hosts
 Hosts are the hosts ip and names for your other nodes in the cluster. You may want to change the hosts, which will be the ip and hostname for the other nodes in the cluster. The hosts can be changed as follows: <br>
