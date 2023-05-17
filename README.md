@@ -80,6 +80,7 @@ Type the following into the file:
 # network: {config: disabled}
 network:
     version: 2
+    renderer: networkd
     ethernets:
         eth0:
             dhcp4: no
@@ -389,7 +390,7 @@ If Ubuntu desktop is installed on a Raspberry Pi, then the Pi can be remotelly c
 Install TightVNC Viewer on a Windows laptop/desktop. Connect the laptop to the switch connecting the Pi.
 <img src="https://user-images.githubusercontent.com/19493039/237030336-ff45598e-e2f2-4481-aa05-497b94137b35.png" width=50% height=50%> <br>
 
-Note: to share the media, networkmanager need to be enable. So add "renderer: NetworkManager" in the netplan configuration file. <br>
+Note: to share the media, networkmanager need to be enable. So change the renderer from "networkd" to "NetworkManager" in the netplan configuration file. <br>
 > sudo nano /etc/netplan/01-network-manager-all.yaml <br> 
 
 ```
@@ -400,6 +401,7 @@ Note: to share the media, networkmanager need to be enable. So add "renderer: Ne
 # network: {config: disabled}
 network:
     version: 2
+#    renderer: networkd
     renderer: NetworkManager
     ethernets:
         eth0:
