@@ -79,6 +79,7 @@ Type the following into the file:
 # /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:
 # network: {config: disabled}
 network:
+    version: 2
     ethernets:
         eth0:
             dhcp4: no
@@ -89,7 +90,6 @@ network:
                 - to: default
                   via: 192.168.137.1
             optional: true
-    version: 2
 ```
 
 You may also want to setup and connect the WIFI:
@@ -411,6 +411,14 @@ network:
                 - to: default
                   via: 192.168.137.1
             optional: true
+            
+    wifis:
+        wlan0:
+            optional: true
+            access-points:
+                "My_wifi":
+                    password: "12345678"
+            dhcp4: true
 ```
 
 #### 10.3 Install paraview
