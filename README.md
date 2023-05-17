@@ -69,9 +69,9 @@ network:
             addresses: [192.168.137.160/24]
             nameservers:
                 addresses: [127.0.0.53, 8.8.8.8]
-            routes:
-                - to: default
-                  via: 192.168.137.1
+#            routes:
+#                - to: default
+#                  via: 192.168.137.1
             optional: true
     version: 2
 ```
@@ -102,7 +102,9 @@ Comment off the ethernet settings in the file /etc/netplan/01-network-manager-al
 Then generate and apply the netplan settings：
 > sudo netplan generate <br>
 > sudo netplan apply <br>
-> reboot
+
+Reboot and install some necessary network programs. <br>
+> sudo reboot <br>
 > sudo apt install net-tools <br>
 > sudo apt install ifmetric <br>
 
@@ -110,7 +112,7 @@ Uncomment off the ethernet settings in the file /etc/netplan/01-network-manager-
 Then generate and apply the netplan settings：
 > sudo netplan generate <br>
 > sudo netplan apply <br>
-> reboot
+> sudo reboot
 
 > route -n <br>
 
@@ -159,8 +161,12 @@ Before update the OS, we need to reboot the rpi. <br>
 
 
 #### 4.5 Update the OS
-Before update the OS, it may need to reboot. Otherwise, error of 
+Before update the OS, it may need to reboot. Otherwise, error may appear. <br> 
+> sudo reboot <br>
 > sudo apt-get update <br>
+
+If you encounter an error: Could not get lock /var/lib/apt/lock, you can just solve the problem by deleting the lock file: <br>
+> sudo rm /var/lib/apt/lock <br>
 
 #### 4.6 Enable SSH
 For Ubuntu 20.04, the SSH seems to be enabled by default.
@@ -428,9 +434,9 @@ network:
             addresses: [192.168.137.160/24]
             nameservers:
                 addresses: [127.0.0.53, 8.8.8.8]
-            routes:
-                - to: default
-                  via: 192.168.137.1
+#            routes:
+#                - to: default
+#                  via: 192.168.137.1
             optional: true
     version: 2
 
