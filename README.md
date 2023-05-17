@@ -382,7 +382,13 @@ If you prefer a UI eniveroment, you can install an ubuntu-desktop on the login n
 > sudo apt update <br>
 > sudo apt install ubuntu-desktop <br>
 
-#### 10.2 Enable screen sharing
+#### 10.2 Install paraview
+In order to postprocessing the topology optimization results, paraview is required to be installed. <br>
+
+Install paraview by: <br>
+> sudo apt install paraview-dev <br>
+
+#### 10.3 Enable screen sharing
 If Ubuntu desktop is installed on a Raspberry Pi, then the Pi can be remotelly controlled. <br>
 <img src="https://user-images.githubusercontent.com/19493039/236723444-743861a7-bd64-4de4-8e89-32581a72d0b0.png" width=80% height=80%> <br>
 <img src="https://user-images.githubusercontent.com/19493039/236728172-8e493577-d68f-4e60-b645-2ea88bf02a1d.png" width=80% height=80%> <br>
@@ -428,14 +434,22 @@ There is one more pitfall. When we try to remotely control, the error message ma
 This error can be corrected by disable the encryption of the Vino server. Vino server is taking in charge of the screen sharing. <br>
 > gsettings set org.gnome.Vino require-encryption false <br>
 
+#### 10.4 Enable auto login
+If you prefer to use ubuntu without typing the password every time, auto login can be enabled. <br>
+> sudo nano /etc/gdm3/custom.conf <br>
 
-#### 10.3 Install paraview
-In order to postprocessing the topology optimization results, paraview is required to be installed. <br>
+Uncomment the following two lines. <br>
+```
+AutomaticLoginEnable=true
+AutomaticLogin=ubuntu
+```
 
-Install paraview by: <br>
-> sudo apt install paraview-dev <br>
+#### 10.5 Turn off blank screen functionality
+To keep the screen always on, we can do the following. Change the blank screen to "Never". <br>
+<img src="https://github.com/wonderfulzzd/Pi_Cluster_for_TopADD/assets/19493039/4148d208-2025-4ed2-a2cb-ffb0a0e3e283" width=50% height=50%> <br>
 
-#### 10.4 Update mpi priority
+
+#### 10.5 Update mpi priority
 After installing paraview, another version of mpi, called OpenMPI will be automatically install. This will interference with the previously install mpich. So like when we compile the topopt program <br>
 > make -j4 topopt <br>
 
@@ -446,13 +460,14 @@ We may get the error message: <br>
 
 This error shows up because the OpenMPI has a higher priority than MPICH. This can be confirmed by <br>
 > update-alternatives --query mpi <br>
+> 
 
 
-#### 10.4 Install python2
+#### 10.6 Install python2
 To process the generated topology optimization results, python2 should be install by <br>
 > sudo apt install python2 <br>
 
-#### 10.5 Restart
+#### 10.7 Restart
 Restart the system <br>
 > sudo reboot <br>
 
