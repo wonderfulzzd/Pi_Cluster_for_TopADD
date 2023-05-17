@@ -119,6 +119,7 @@ Pull off the ethernet cable and you will have internet connection through wifi. 
 > sudo apt install net-tools <br>
 > sudo apt install ifmetric <br>
 > route -n <br>
+
 You may see something similar to the following info: <br>
 ```
 Destination     Gateway     Genmask       Flags       Metric       Ref      Use     Iface
