@@ -115,7 +115,7 @@ Then generate and apply the netplan settings：
 Both LAN and Wifi should have been connected.
 
 If you want to prioritize wifi connection over ethernet connection, you have to do as following steps: <br>
-Pull off the ethernet cable and you will have internet connection through wifi. <br>
+Pull off the ethernet cable and reboot. You will have internet connection through wifi. <br>
 > sudo apt install net-tools <br>
 > sudo apt install ifmetric <br>
 > route -n <br>
