@@ -187,6 +187,9 @@ Install PETSc. <br>
 > ./configure PETSC_DIR=/home/ubuntu/opt/petsc-3.16.3 PETSC_ARCH=arch-linux-mpicc-release --COPTFLAGS='-O3' --CXXOPTFLAGS='-O3' --FOPTFLAGS='-O3' --with-hypre-dir=/home/ubuntu/opt/hypre-2.19.0 --with-debugging=0 --with-cc=mpicc --with-cxx=mpicxx --with-fc=mpif90  <br>
 > make -j4 PETSC_DIR=/home/ubuntu/opt/petsc-3.16.3 PETSC_ARCH=arch-linux-mpicc-release all <br>
 
+Also install a debug version of PETSc. <br>
+> ./configure PETSC_DIR=/home/ubuntu/opt/petsc-3.16.3 PETSC_ARCH=arch-linux-mpicc-debug --COPTFLAGS='-g' --CXXOPTFLAGS='-g' --FOPTFLAGS='-g' --with-hypre-dir=/home/ubuntu/opt/hypre-2.19.0 --with-debugging=1 --with-cc=mpicc --with-cxx=mpicxx --with-fc=mpif90  <br>
+> make -j4 PETSC_DIR=/home/ubuntu/opt/petsc-3.16.3 PETSC_ARCH=arch-linux-mpicc-release all <br>
 
 ### 5. Clone multiple microSD
 Use an open-source software called Clonezilla: https://clonezilla.org/
