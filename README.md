@@ -419,7 +419,7 @@ network:
 There is one more pitfall. When we try to remotely control, the error message may be received 
 <img src="https://github.com/wonderfulzzd/Pi_Cluster_for_TopADD/assets/19493039/99a8d875-3dbd-4bac-a69a-7d71aff81fbe" width=50% height=50%> <br>
 
-This error can be corrected by disable the encryption of the Vino server. Vino server is taking in charge of the screen sharing. <br>
+This error can be corrected by disabling the encryption of the Vino server. Vino server is taking in charge of the screen sharing. <br>
 > gsettings set org.gnome.Vino require-encryption false <br>
 
 #### 10.4 Enable auto login
