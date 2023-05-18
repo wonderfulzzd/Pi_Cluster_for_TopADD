@@ -144,6 +144,7 @@ Check the status of the ssh server:
 
 Use the UFW (Uncomplicated FireWall) to allow SSH connections:
 > sudo ufw allow ssh <br>
+> sudo ufw allow from 192.168.137.0/24 <br>
 > sudo ufw enable <br>
 
 Check the UFW status:
