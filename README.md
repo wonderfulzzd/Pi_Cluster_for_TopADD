@@ -178,8 +178,8 @@ The official instruction: <br>
 https://petsc.org/main/install/install/ <br>
 
 Download PETSc
-> cd ~/ubuntu/opt
-> wget -c https://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-3.16.3.tar.gz <br>
+> cd ~/ubuntu/opt <br>
+> wget -c https://www.mcs.anl.gov/petsc/mirror/release-snapshots/petsc-3.16.3.tar.gz <br>
 
 Install PETSc. <br>
 > tar -xof petsc-3.16.3.tar.gz <br>
