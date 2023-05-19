@@ -474,7 +474,7 @@ Restart the system <br>
 
 ## Method 2: Restore from the provided image files
 ### 1. Download the saved OS image file
-   https://drive.google.com/file/d/1a3AGSDZsX-cr1Yr_Lzr8m-sxWUnLC_gN/view?usp=share_link
+   https://drive.google.com/drive/folders/1AKukyrJqC8yL2S2H1plEN8ZqoN_B8zXJ?usp=share_link
    
 ### 2. Restore the image file on microSD cards
    Use an open-source software called Clonezilla: https://clonezilla.org/
