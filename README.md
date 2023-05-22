@@ -473,8 +473,10 @@ Restart the system <br>
 > sudo reboot <br>
 
 ### 11 Try pvpython of Paraview
+Copy the file "paraview-pvpython-screenshot.sh" to the directory of TopADD <br>
 > make -j4 topopt <br>
 > mpiexec -n 4 ./topopt <br>
+> python2 bin2vtu.py 30 <br>
 > pvpython paraview-pvpython-screenshot.sh 30 <br>
 
 ## Method 2: Restore from the provided image files
