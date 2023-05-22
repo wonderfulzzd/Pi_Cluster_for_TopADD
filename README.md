@@ -479,6 +479,10 @@ Copy the file "paraview-pvpython-screenshot.sh" to the directory of TopADD <br>
 > python2 bin2vtu.py 30 <br>
 > pvpython paraview-pvpython-screenshot.sh 30 <br>
 
+![output_00030_3](https://github.com/wonderfulzzd/Pi_Cluster_for_TopADD/assets/19493039/8ae190d7-51eb-427b-8df5-ae355c01fcc6)
+![output_00030_4](https://github.com/wonderfulzzd/Pi_Cluster_for_TopADD/assets/19493039/3c67cad4-1441-425b-b2ad-fc81ab2ad68a)
+
+
 ## Method 2: Restore from the provided image files
 ### 1. Download the saved OS image file
    https://drive.google.com/drive/folders/1AKukyrJqC8yL2S2H1plEN8ZqoN_B8zXJ?usp=share_link
