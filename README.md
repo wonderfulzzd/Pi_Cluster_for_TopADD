@@ -479,8 +479,10 @@ Copy the file "paraview-pvpython-screenshot.sh" to the directory of TopADD <br>
 > python2 bin2vtu.py 30 <br>
 > pvpython paraview-pvpython-screenshot.sh 30 <br>
 
-![output_00030_3](https://github.com/wonderfulzzd/Pi_Cluster_for_TopADD/assets/19493039/8ae190d7-51eb-427b-8df5-ae355c01fcc6)
-![output_00030_4](https://github.com/wonderfulzzd/Pi_Cluster_for_TopADD/assets/19493039/3c67cad4-1441-425b-b2ad-fc81ab2ad68a)
+![output_00030_3](https://github.com/wonderfulzzd/Pi_Cluster_for_TopADD/assets/19493039/aca99ff2-daad-4e21-9a64-1bc9783ea6f3)
+![output_00030_4](https://github.com/wonderfulzzd/Pi_Cluster_for_TopADD/assets/19493039/b1da6c14-2bf0-4549-a85b-56d67d5365e9)
+
+
 
 
 ## Method 2: Restore from the provided image files
