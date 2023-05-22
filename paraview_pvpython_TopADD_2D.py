@@ -124,7 +124,7 @@ def main(iterNum):
         thres1.ThresholdRange = [0.5, 1.0]
         extractSurface1 = ExtractSurface(Input=thres1) # extract surface
         extractSurface1Display = Show(extractSurface1, view)
-#        Hide(thres1, view)
+        Hide(thres1, view)
         linearExtrusion1 = LinearExtrusion(Input=extractSurface1)
         linearExtrusion1Display = Show(linearExtrusion1, view)
         Hide(extractSurface1, view)
