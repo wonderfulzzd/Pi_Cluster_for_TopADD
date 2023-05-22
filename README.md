@@ -472,6 +472,10 @@ To process the generated topology optimization results, python2 should be instal
 Restart the system <br>
 > sudo reboot <br>
 
+### 11 Try pvpython of Paraview
+> make -j4 topopt <br>
+> mpiexec -n 4 ./topopt <br>
+> pvpython paraview-pvpython-screenshot.sh 30 <br>
 
 ## Method 2: Restore from the provided image files
 ### 1. Download the saved OS image file
