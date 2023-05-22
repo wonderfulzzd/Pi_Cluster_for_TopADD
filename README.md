@@ -376,6 +376,7 @@ In order to postprocessing the topology optimization results, paraview is requir
 
 Install paraview by: <br>
 > sudo apt install paraview-dev <br>
+> sudo apt install python3-paraview <br>
 
 #### 10.3 Enable screen sharing
 If Ubuntu desktop is installed on a Raspberry Pi, then the Pi can be remotelly controlled. <br>
