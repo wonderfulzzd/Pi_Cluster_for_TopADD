@@ -477,7 +477,7 @@ Copy the file "paraview-pvpython-screenshot.sh" to the directory of TopADD <br>
 > make -j4 topopt <br>
 > mpiexec -n 4 ./topopt <br>
 > python2 bin2vtu.py 30 <br>
-> pvpython paraview-pvpython-screenshot.sh 30 <br>
+> pvpython paraview-pvpython-topadd_2d.sh 30 <br>
 
 ![output_00030_3](https://github.com/wonderfulzzd/Pi_Cluster_for_TopADD/assets/19493039/aca99ff2-daad-4e21-9a64-1bc9783ea6f3)
 ![output_00030_4](https://github.com/wonderfulzzd/Pi_Cluster_for_TopADD/assets/19493039/b1da6c14-2bf0-4549-a85b-56d67d5365e9)
