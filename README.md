@@ -362,6 +362,10 @@ Compile and run
 
 The cluster has been successfully configured.
 
+The runTest.sh file can help to run the TopADD in batch with different software configuration (debug, release). different number of cores (1,2,3,4,...), and different dimensional problems (2D, 3D). Before running it, the exectuatability should be assigned.
+> chomod +x runTest.sh
+> ./runTest.sh
+
 
 ### 10. (optional) Ubuntu desktop
 
