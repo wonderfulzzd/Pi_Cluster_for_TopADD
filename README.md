@@ -358,11 +358,17 @@ rpi4
 
 Compile and run
 > make -j4 topopt <br>
-> mpiexec -n 16 -hostfile machinefile ./topopt
+> mpiexec -n 16 -hostfile machinefile ./topopt <br>
 
 The cluster has been successfully configured.
 
-The runTest.sh file can help to run the TopADD in batch with different software configuration (debug, release). different number of cores (1,2,3,4,...), and different dimensional problems (2D, 3D). Before running it, the exectuatability should be assigned.
+The runTest.sh file can help to run the TopADD in batch with different software configuration (debug, release). different number of cores (1,2,3,4,...), and different dimensional problems (2D, 3D).  <br>
+> git clone https://github.com/wonderfulzzd/TopADD_2D_3D_Arbitrary_TopOpt_in_PETSc.git <br>
+> git clone https://github.com/wonderfulzzd/Pi_Cluster_for_TopADD.git
+> cp Pi_Cluster_for_TopADD/* TopADD_2D_3D_Arbitrary_TopOpt_in_PETSc <br>
+> cd TopADD_2D_3D_Arbitrary_TopOpt_in_PETSc <br>
+> 
+Before running it, the exectuatability should be assigned.
 > chomod +x runTest.sh
 > ./runTest.sh
 
