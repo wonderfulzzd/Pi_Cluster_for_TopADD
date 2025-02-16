@@ -435,6 +435,13 @@ There is one more pitfall. When we try to remotely control, the error message ma
 This error can be corrected by disabling the encryption of the Vino server. Vino server is taking in charge of the screen sharing. <br>
 > gsettings set org.gnome.Vino require-encryption false <br>
 
+There is one more pitfall. When we try to remotely control, the error message may be received 
+<img src="<img width="358" alt="image" src="https://github.com/user-attachments/assets/dadc06f8-ded1-4c79-9052-a88aca17fbf5" width=50% height=50%> <br>
+
+This error can be corrected by refresh the fire wall.  <br>
+> sudo ufw allow 5900/tcp
+> sudo ufw reload <br>
+
 #### 10.4 Enable auto login
 If you prefer to use ubuntu without typing the password every time, auto login can be enabled. <br>
 > sudo nano /etc/gdm3/custom.conf <br>
