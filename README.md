@@ -436,7 +436,7 @@ This error can be corrected by disabling the encryption of the Vino server. Vino
 > gsettings set org.gnome.Vino require-encryption false <br>
 
 There is one more pitfall. When we try to remotely control, the error message may be received 
-<img src="<img width="358" alt="image" src="https://github.com/user-attachments/assets/dadc06f8-ded1-4c79-9052-a88aca17fbf5" width=50% height=50%> <br>
+<img src="https://github.com/user-attachments/assets/dadc06f8-ded1-4c79-9052-a88aca17fbf5" width=50% height=50%> <br>
 
 This error can be corrected by refresh the fire wall.  <br>
 > sudo ufw allow 5900/tcp
