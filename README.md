@@ -439,7 +439,7 @@ There is one more pitfall. When we try to remotely control, the error message ma
 <img src="https://github.com/user-attachments/assets/faf3f4d3-d532-45bb-8f64-078b50d91d4f" width=50% height=50%> <br>
 
 This error can be corrected by refresh the fire wall.  <br>
-> sudo ufw allow 5900/tcp
+> sudo ufw allow 5900/tcp <br>
 > sudo ufw reload <br>
 
 #### 10.4 Enable auto login
