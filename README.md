@@ -517,3 +517,6 @@ Connect power supply and boot. <br>
 
 ### 4. Follow the step 6-10 in Method 1
 
+## Citing this work
+Zhang, Z.-D., Yu, D.-Y., Ibhadode, O., Meng, L., Gao, T., Zhu, J.-H., & Zhang, W.-H. (2025). TopADDPi: An Affordable and Sustainable Raspberry Pi Cluster for Parallel-Computing Topology Optimization. Processes, 13(3), 633. https://doi.org/10.3390/pr13030633
+
